@@ -15,8 +15,17 @@ cpref = ['W','X','Y','Z','V']
 dpref = ['V','Z','Y','X','W']
 epref = ['Y','W','Z','X','V']
 
+#We will use two dictionaries to check man and woman availability
+manav = dict(zip(men,[1]*len(men)))
+print(manav)
+#womanav = []
+
+###Do not forget to implement the efficient algo###
+
 #Implementation of the propose and reject algorithm
 
+for man in men:
+ print(man)
 
 ###Changing the man order of proposal###
 

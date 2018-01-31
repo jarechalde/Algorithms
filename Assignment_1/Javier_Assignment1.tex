@@ -71,24 +71,43 @@ In this case I think it makes more sense to start from the students side, checki
 
 Now we will proceed to describe our algorithm structure.
 
-$m$ is the total number of hospitals
-$n$ is the total number of students
+\section{Algorithm implementation}
 
-While $nassign<npositios$ and $nstudentschecked<n$
- pick one student $s_i$
- try to assign to that student to the first hospital in his preference list
- if n_students assigned to h < positions available for h
-  student s is assigned to hospital h
- else if n_stdents assigned>positions available for h
-  check hospital preference list
-  if new student $s'$ higher in the list than $s$
-   s is now free
-   s' is now assigned to the hospital
-  else if student is not higher in the preference list than any of the students assigned to h
-   student s remains free
-endwhile
+$H$ is the set of hospitals.
+$S$ is the set of students.
 
-Return the sets of hospitals and assigned students
+$m$ is the total number of hospitals.
+$n$ is the total number of students.
+
+$h_{pref}$ is the hospital student preference list for each $s \in S$.
+$s_{pref}$ is the student hospital preference list for each $h \in H$.
+
+$n_{avail} (h_i)$ is the total number of possitions available in each hospital.
+$n_{assign} (h_i)$ is the total number of students assigned to a hospital.
+
+$N_{pos}$ is the total number of positions available $\sum n_{avail} (h_i)$.
+$S_{assign}$ is the total number of students that have a hospital assigned.
+
+$S_{check}$ is the total number of students that we tried to assign a hospital to.
+
+Initially all students $s \in S$ and $h \in H$ are free
+
+\textbf{While} $S_{assign}<N_{pos}$ and $S_{check}<n$ and student $s$ hasnt proposed to all $h_i \in s_{pref}$\newline
+ Try to assign to that student to a hospital in his preference list $h_i(s)$\newline
+ \textbf{If} $n_{assign} (h_i) < n_{avail} (h_i)$\newline
+  Student $s$ is assigned to hospital $h_i$\newline
+ \textbf{Else If} $n_{assign} (h_i) \geq n_{avail} (h_i)$\newline
+  Check $h_{pref} (h_i)$\newline
+  \textbf{If} student $s$ is higher in the list than any student $s_i \in S$\newline
+   Student $s'$ is now free, and will try to be reassigned in the next iteration\newline
+   Student $s$ is now assigned to hospital $h_i$\newline
+  \textbf{Else If} student $s$ is not higher in $h_{pref}$ than any $s_i \in h_{pref} (h_i)$\newline
+   Student $s$ remains free\newline
+\textbf{EndIf}
+\textbf{EndIf}
+\textbf{EndWhile}
+
+Return the set of hospitals and assigned students to each hospital.
   
 
 \section*{Problem 2. Implementation of Propose-and-Reject Algorithms}
