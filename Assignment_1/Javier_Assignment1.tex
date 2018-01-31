@@ -23,7 +23,7 @@
 	\centering
 	{\scshape\LARGE Assignment 1\par}
 	\vspace{1cm}
-	{\scshape\Large CIS 522-01\par}
+	{\scshape\Large Algorithms & Complexity (CIS 522-01)\par}
 	\vspace{1.5cm}
 	{\Large\itshape Javier Arechalde\par}
 	\vfill
@@ -31,6 +31,65 @@
 \end{titlepage}
 
 \section*{Problem 1. Matching Residents to Hospitals}
+
+We have $m$ hospitals, each one of them has certain number of available positions to hire residents.
+
+In a given year $n$ medical students were graduating, each one of them interested in joining one of the hospitals.
+
+Each one of the hospitals had a ranking of the students in order of preference, and each student had a ranking of hospitals in order of preference.
+
+In this problem we will assume that $n>m$.
+
+We are looking to assign each student to at most one hospital, in a way that all available positions in hospitals are filled. As $n>m$ some students may have none hospitals assigned at the end of the algorithm run.
+
+For this problem there will be two types of unstability:
+
+\begin{itemize}
+
+\item{First type}
+
+There are students $s$ and $s'$, and hospital $h$.
+
+- $s$ is assigned to $h$.
+- $s'$ is assigned to no hospital.
+- $h$ prefers $s'$ to $s$.
+
+\item{Second type}
+
+There are students $s$ and $s'$ and hospitals $h$ and $h'$.
+
+- $s$ is assigned to $h$
+- $s'$ is assigned to $h'$
+- $h$ prefers $s'$ to $s$
+- $s'$ prefers $h$ to $h'$
+
+\end{itemize}
+
+So the difference between this problem and stable matching problem is that hospitals want more than one student usually, and there is more students that positions available in the hospitals.
+
+In this case I think it makes more sense to start from the students side, checking if there is any positions available in the first hospital they want to get a position in, and if there is one get it, otherwise, check if the hospital prefers this student to the ones that they have assigned already. If the hospital prefer this student to one of the students that they have already assigned, kick the least preferred student, and get this new student in. This algorithm should run while the number of students "free" is different from the number of positions available, and all the students havent been checked yet, because even though, all the positions are filled, we may be running in the first type of unstability, as $h$ prefers $s'$ to $s$ and $s'$.
+
+Now we will proceed to describe our algorithm structure.
+
+$m$ is the total number of hospitals
+$n$ is the total number of students
+
+While $nassign<npositios$ and $nstudentschecked<n$
+ pick one student $s_i$
+ try to assign to that student to the first hospital in his preference list
+ if n_students assigned to h < positions available for h
+  student s is assigned to hospital h
+ else if n_stdents assigned>positions available for h
+  check hospital preference list
+  if new student $s'$ higher in the list than $s$
+   s is now free
+   s' is now assigned to the hospital
+  else if student is not higher in the preference list than any of the students assigned to h
+   student s remains free
+endwhile
+
+Return the sets of hospitals and assigned students
+  
 
 \section*{Problem 2. Implementation of Propose-and-Reject Algorithms}
 
