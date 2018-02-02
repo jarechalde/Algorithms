@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  1 FEB 2018 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  2 FEB 2018 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -675,60 +675,46 @@ LaTeX Info: Redefining \nameref on input line 23.
 \@outlinefile=\write3
 \openout3 = `Javier_Assignment1.out'.
 
-
-! Misplaced alignment tab character &.
-l.29 	{\scshape\Large Algorithms &
-                                   Complexity (CIS 522-01)\par}
-? 
-[1
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 52.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 52.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.82 $
-      m$ is the total number of hospitals. [1]
-Overfull \hbox (7.70317pt too wide) in paragraph at lines 88--90
-[]$\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 )$ 
-is the to-tal num-ber of pos-si-tions avail-able in each hos-pi-tal. $\OML/cmm/
-m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 )$
- []
-
+l.83 
+      [1]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 117.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (9.27298pt too wide) in paragraph at lines 136--136
+put line 107.
+ [2] [3]
+Overfull \hbox (9.27298pt too wide) in paragraph at lines 155--155
 [][]\OT1/cmr/bx/n/14.4 Problem 2. Im-ple-men-ta-tion of Propose-and-Reject
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
-[2] [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 159.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 159.
  (./Javier_Assignment1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 159.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 159.
 Package rerunfilecheck Info: File `Javier_Assignment1.out' has not changed.
-(rerunfilecheck)             Checksum: 238E266A3AF7DF29204149484FD9D20E;59.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17934 strings out of 493029
- 320565 string characters out of 6136235
- 412042 words of memory out of 5000000
- 21317 multiletter control sequences out of 15000+600000
- 6555 words of font info for 24 fonts, out of 8000000 for 9000
+ 17939 strings out of 493029
+ 320620 string characters out of 6136235
+ 413067 words of memory out of 5000000
+ 21313 multiletter control sequences out of 15000+600000
+ 7161 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,42p,10440b,427s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,42p,10440b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
@@ -737,13 +723,14 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti12.pfb>
-Output written on Javier_Assignment1.pdf (4 pages, 122532 bytes).
+c/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb>
+Output written on Javier_Assignment1.pdf (5 pages, 136755 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

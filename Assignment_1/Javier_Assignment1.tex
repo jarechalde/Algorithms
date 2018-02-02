@@ -8,7 +8,7 @@
 \usepackage[colorlinks]{hyperref}
 
 \usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
+\usepackage{algpseudocode}
 
 \hypersetup{citecolor=DeepPink4}
 \hypersetup{linkcolor=DarkRed}
@@ -26,7 +26,7 @@
 	\centering
 	{\scshape\LARGE Assignment 1\par}
 	\vspace{1cm}
-	{\scshape\Large Algorithms & Complexity (CIS 522-01)\par}
+	{\scshape\Large Algorithms \& Complexity (CIS 522-01)\par}
 	\vspace{1.5cm}
 	{\Large\itshape Javier Arechalde\par}
 	\vfill
@@ -34,6 +34,8 @@
 \end{titlepage}
 
 \section*{Problem 1. Matching Residents to Hospitals}
+
+\subsection*{Problem description}
 
 We have $m$ hospitals, each one of them has certain number of available positions to hire residents.
 
@@ -54,7 +56,9 @@ For this problem there will be two types of unstability:
 There are students $s$ and $s'$, and hospital $h$.
 
 - $s$ is assigned to $h$.
+
 - $s'$ is assigned to no hospital.
+
 - $h$ prefers $s'$ to $s$.
 
 \item{Second type}
@@ -62,11 +66,16 @@ There are students $s$ and $s'$, and hospital $h$.
 There are students $s$ and $s'$ and hospitals $h$ and $h'$.
 
 - $s$ is assigned to $h$
+
 - $s'$ is assigned to $h'$
+
 - $h$ prefers $s'$ to $s$
+
 - $s'$ prefers $h$ to $h'$
 
 \end{itemize}
+
+\subsection*{Overview of the problem}
 
 So the difference between this problem and stable matching problem is that hospitals want more than one student usually, and there is more students that positions available in the hospitals.
 
@@ -74,64 +83,74 @@ In this case I think it makes more sense to start from the students side, checki
 
 Now we will proceed to describe our algorithm structure.
 
-\section{Algorithm implementation}
+\subsection*{Algorithm implementation}
 
-$H$ is the set of hospitals.
-$S$ is the set of students.
+\begin{itemize}
 
-$m$ is the total number of hospitals.
-$n$ is the total number of students.
+\item $H,S$ are the set of Hospitals and Students respectively.
 
-$h_{pref}$ is the hospital student preference list for each $s \in S$.
-$s_{pref}$ is the student hospital preference list for each $h \in H$.
+\item $m,n$ are the total number of hospitals and students respectively.
 
-$n_{avail} (h_i)$ is the total number of possitions available in each hospital.
-$n_{assign} (h_i)$ is the total number of students assigned to a hospital.
+\item $h_{pref}$ is the hospital student preference list for each $s \in S$.
+\item $s_{pref}$ is the student hospital preference list for each $h \in H$.
 
-$N_{pos}$ is the total number of positions available $\sum n_{avail} (h_i)$.
-$S_{assign}$ is the total number of students that have a hospital assigned.
+\item $n_{avail} (h_i)$ is the total number of possitions available in each hospital.
+\item $n_{assign} (h_i)$ is the total number of students assigned to a hospital.
 
-$S_{check}$ is the total number of students that we tried to assign a hospital to.
+\item $N_{pos}$ is the total number of positions available $\sum n_{avail} (h_i)$.
+\item $S_{assign}$ is the total number of students that have a hospital assigned.
 
-Initially all students $s \in S$ and $h \in H$ are free
-
-\textbf{While} $S_{assign}<N_{pos}$ and $S_{check}<n$ and student $s$ hasnt proposed to all $h_i \in s_{pref}$\newline
- Try to assign to that student a hospital in his preference list $h_i(s)$\newline
- \textbf{If} $n_{assign} (h_i) < n_{avail} (h_i)$\newline
-  Student $s$ is assigned to hospital $h_i$\newline
- \textbf{Else If} $n_{assign} (h_i) \geq n_{avail} (h_i)$\newline
-  Check $h_{pref} (h_i)$\newline
-  \textbf{If} student $s$ is higher in the list than any student $s_i \in S$\newline
-   Student $s'$ is now free, and will try to be reassigned in the next iteration\newline
-   Student $s$ is now assigned to hospital $h_i$\newline
-  \textbf{Else If} student $s$ is not higher in $h_{pref}$ than any $s_i \in h_{pref} (h_i)$\newline
-   Student $s$ remains free\newline
-\textbf{EndIf}
-\textbf{EndIf}
-\textbf{EndWhile}
-
-Return the set of hospitals and assigned students to each hospital.
+\item $S_{check}$ is the total number of students that we tried to assign a hospital to.
+\end{itemize}
   
-
 \begin{algorithm}
-\caption{Algorithm pseudocode}\label{euclid}
-\begin{algorithmic}
+\caption{My implementation}
+\begin{algorithmic}[1]
 \While {$S_{assign}<N_{pos}$ \& $S_{check}<n$ \& student $s$ hasnt proposed to all $h_i \in s_{pref}$}
-\State Try to assign to that student a hospital in his preference list
-\If {$n_{assign} (h_i) < n_{avail} (h_i)$}
-\State Student $s$ is assigned to hospital $h_i$
-\ElsIf { $n_{assign} (h_i) \geq n_{avail} (h_i)$}
-\State Check $h_{pref} (h_i)$
-\If {student $s$ is higher in the list than any student $s_i \in S$}
-\State Student $s'$ is now free, and will try to be reassigned in the next iteration
-\State Student $s$ is now assigned to hospital $h_i$
-\ElsIf { Student $s$ is not higher in $h_{pref}$ than any $s_i \in h_{pref} (h_i)$}
-\State Student $s$ remains free
-\EndIf
-\EndIf
+ \State Try to assign to that student a hospital in his preference list
+ \If {$n_{assign} (h_i) < n_{avail} (h_i)$}
+  \State Student $s$ is assigned to hospital $h_i$
+  \ElsIf {$n_{assign} (h_i) \geq n_{avail} (h_i)$}
+   \State Check $h_{pref} (h_i)$
+   \If {student $s$ is higher in the list than any student $s_i \in S$}
+   \State Least prefered student $s'$ in $h$ is now free, and will try to be reassigned
+   \State Student $s$ is now assigned to hospital $h_i$
+   \ElsIf {Student $s$ is not higher in $h_{pref}$ than any $s_i \in h_{pref} (h_i)$}
+   \State Student $s$ remains free
+  \EndIf
+ \EndIf
 \EndWhile
+\State Return the set of hospitals and assigned students to each hospital.  
 \end{algorithmic}
 \end{algorithm}
+
+\pagebreak
+
+\subsection*{Proof that the assignment is stable:}
+
+In order to prove that our assignment is stable, we need to prove that none of the two types of instability can happen.
+
+\textbf{First type of instability:}
+
+- $s$ is assigned to $h$.
+
+- $s'$ is assigned to no hospital.
+
+- $h$ prefers $s'$ to $s$.
+
+In the execution of our algorithm that resulted in the set of students and hospitals $S$, $s'$ last proposal was to $h$ by definition. In our algorithm implementation, if a student $s$ proposes to a hospital, and the hospital, even though it has all its positions filled, prefers this new student that the ones that are already assigned to it, the hospital will dump the least prefered student, and assign that position to the new student. This contradicts the fact that $h$ prefers $s'$ to $s$, because in that case, $s$ would have been dumped in the execution of the algorithm, and its position would have been assigned to the new student $s'$.
+
+\textbf{Second type of instability:}
+
+- $s$ is assigned to $h$
+
+- $s'$ is assigned to $h'$
+
+- $h$ prefers $s'$ to $s$
+
+- $s'$ prefers $h$ to $h'$
+
+In the execution of our algorithm that produced the set of students and hospitals $S$, $s$'s last proposal was to $h$ by definition. The question is now: Did $s'$ propose to $h$ at some earlier point in the execution of the algorithm? If this happened, and $s'$ was higher in the preference list than $s$, $s'$ would have been reassigned to $h$, so if this didn't happen that means that $h$ prefers $s$ rather than $s'$, which contradicts the fact than $h$ prefers $s'$ to $s$. Then it is proven, that this type of instability can't happen in our algorithm implementation.
 
 \section*{Problem 2. Implementation of Propose-and-Reject Algorithms}
 
