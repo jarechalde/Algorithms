@@ -7,6 +7,9 @@
 \usepackage[linewidth=1pt]{mdframed}
 \usepackage[colorlinks]{hyperref}
 
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
 \hypersetup{citecolor=DeepPink4}
 \hypersetup{linkcolor=DarkRed}
 \hypersetup{urlcolor=Blue}
@@ -93,7 +96,7 @@ $S_{check}$ is the total number of students that we tried to assign a hospital t
 Initially all students $s \in S$ and $h \in H$ are free
 
 \textbf{While} $S_{assign}<N_{pos}$ and $S_{check}<n$ and student $s$ hasnt proposed to all $h_i \in s_{pref}$\newline
- Try to assign to that student to a hospital in his preference list $h_i(s)$\newline
+ Try to assign to that student a hospital in his preference list $h_i(s)$\newline
  \textbf{If} $n_{assign} (h_i) < n_{avail} (h_i)$\newline
   Student $s$ is assigned to hospital $h_i$\newline
  \textbf{Else If} $n_{assign} (h_i) \geq n_{avail} (h_i)$\newline
@@ -110,6 +113,28 @@ Initially all students $s \in S$ and $h \in H$ are free
 Return the set of hospitals and assigned students to each hospital.
   
 
+\begin{algorithm}
+\caption{Algorithm pseudocode}\label{euclid}
+\begin{algorithmic}
+\While {$S_{assign}<N_{pos}$ \& $S_{check}<n$ \& student $s$ hasnt proposed to all $h_i \in s_{pref}$}
+\State Try to assign to that student a hospital in his preference list
+\If {$n_{assign} (h_i) < n_{avail} (h_i)$}
+\State Student $s$ is assigned to hospital $h_i$
+\ElsIf { $n_{assign} (h_i) \geq n_{avail} (h_i)$}
+\State Check $h_{pref} (h_i)$
+\If {student $s$ is higher in the list than any student $s_i \in S$}
+\State Student $s'$ is now free, and will try to be reassigned in the next iteration
+\State Student $s$ is now assigned to hospital $h_i$
+\ElsIf { Student $s$ is not higher in $h_{pref}$ than any $s_i \in h_{pref} (h_i)$}
+\State Student $s$ remains free
+\EndIf
+\EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
 \section*{Problem 2. Implementation of Propose-and-Reject Algorithms}
+
+See the source code attached to this assignment.
 
 \end{document}
