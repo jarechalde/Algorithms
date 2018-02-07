@@ -112,9 +112,61 @@ So in our solution, we will divide the ladder into $m$ divisions. This way, our 
 
 \subsection*{Model description}
 
+In this problem, we have $n$ butterflies, we want to separate then in two groups, let's call them $A$ and $B$. It doesn't matter in which group we classify each one of the butterflies, because we only want to separate them in two groups, we don't need to put them in the correct group.
+
+To complete this task, we are given a $m$ comparisons that dictaminate if the pair of specimens $i,j$ belong to the same group, or they are in two separate groups. This number of $m$ comparisons, is smaller than the possible number of pairs in the set of specimens, which is $n(n-1)/2$, because some pairs are ambiguous, which means that we are not sure if the pair belongs to the same group or not.
+
+We want to determine if this set of $m$ comparisons is consistant, and thus, we are separating the butterflies coherently.
+
 \subsection*{Overall idea}
 
+We will have a dictionary containing the $n$ different specimens that we want to separate. This way, we can check in only O(1), the group each specimen its assigned.
+
+We will have a set of $m$ tuples that dictaminates if both specimens are in 'S' (Same group) or 'D' (different group). We also assume that this set of tuples comes in order, starting first with the pairs that contain specimen 1, then the pairs that contain specimen 2, etc.
+
+We will start going pair by pair, assigning the pairs different or same group, until we run into an inconsistency, then we will exit the run.
+
 \subsection*{Pseudocode}
+
+\begin{algorithm}[H]
+\caption{My Implementation}
+\begin{algorithmic}[1]
+\While{The pairs are consistent, for every tuple in $m$}
+ \State Take one tuple $m_i \in m$
+ \If{None of the tuple members have a group assigned}
+  \If{Tuple in the same group}
+   \State Assign group $A$ to $m_i[0]$
+   \State Assign group $A$ to $m_i[1]$
+  \ElsIf{Tuple in different group}
+   \State Assign group $A$ to $m_i[0]$.
+   \State Assign group $B$ to $m_i[1]$.
+  \EndIf
+ \EndIf
+ \If{One of the members in the tuple has a group assigned}
+  \If{Tuple in the same group}
+   \State Assign $Group(m_i[0])$ to $m_i[1]$
+  \ElsIf{Tuple in different group}
+   \State Assign opposite $Group(m_i[0])$ to $m_i[1]$
+  \EndIf
+ \EndIf
+ \If{Both members on the tuple have a group assigned already}
+  \If{Tuple in the same group}
+   \If{They have different groups assigned}
+    \State Inconsistency!
+   \Else
+    \State continue
+   \EndIf
+  \ElsIf{Tuple in different group}
+   \If{They have same groups assigned}
+    \State Inconsistency!
+   \Else
+    \State continue
+   \EndIf
+  \EndIf
+ \EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
 
 \subsection*{Example}
 
