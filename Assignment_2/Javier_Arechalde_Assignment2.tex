@@ -95,6 +95,17 @@ In the image shown below, you can see the results of running this algorithm, in 
 
 \subsection*{Time complexity analysis}
 
+\subsection*{b.}
+
+In this case, out budget is limited to $k$ jars, where $k>2$. We want to find the highest safe rung using at most $k$ jars. For each jar $k_i$ the number of times we drop whis jar should be less than the number of times we dropped the previous jar $k_{i-1}$ so $\lim_{n\to\infty} f_k(n)/f_{k-1}(n) = 0$.
+
+The current rung we are dropping our jars from is $r$, and the highest safe run will be assigned to $sr$.
+
+\subsection*{Overall idea}
+
+In case we are given 2 jars, $k = 2$, we will use one algorithm with a different approach, because if we use linear search, our solution will grow linearly, but if we use binary search, we will exceed the number of available jars we have for this problem.
+
+So in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the highest safe rung, and then go to the start of the previous division before it broke, and go to the next division, which is $n/m$ steps away from the previous division.
 
 
 \section*{Butterfly Studies}
