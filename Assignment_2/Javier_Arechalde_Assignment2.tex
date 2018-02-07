@@ -124,7 +124,7 @@ We will have a dictionary containing the $n$ different specimens that we want to
 
 We will have a set of $m$ tuples that dictaminates if both specimens are in 'S' (Same group) or 'D' (different group). We also assume that this set of tuples comes in order, starting first with the pairs that contain specimen 1, then the pairs that contain specimen 2, etc.
 
-We will start going pair by pair, assigning the pairs different or same group, until we run into an inconsistency, then we will exit the run.
+We will start going tuple by tuple, if none of them have a group assigned, we will assign them to the same group, or to a different group, depending the notation on that tuple. If only one member of the tuple has a group assigned, we will assign the other tuple to the same group or the different one, according to the notation on that tuple. In the end, if both tuples have a group already assigned, we will proceed to check if this new notation is consistent or not. In the case it's not consistent, the whole classification is unconsistent, and we stop our algorihtm.
 
 \subsection*{Pseudocode}
 
@@ -169,6 +169,11 @@ We will start going pair by pair, assigning the pairs different or same group, u
 \end{algorithm}
 
 \subsection*{Example}
+
+To prove that our algorithm works, we implemented it in Python, and we ran it over a sample dataset.
+
+\lstinputlisting[language=Python]{problem2.py}
+
 
 \subsection*{Time complexity analysis}
 
