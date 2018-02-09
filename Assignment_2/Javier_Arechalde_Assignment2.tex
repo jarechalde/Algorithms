@@ -111,13 +111,50 @@ In case we are given 2 jars, $k = 2$, we will use one algorithm with a different
 
 So in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the highest safe rung, and then go to the start of the previous division before it broke, and go to the next division, which is $n/m$ steps away from the previous division.
 
-In case, we have $k$ jars to run our test, we will try a different approach. One of the requirements of the algorithm design was that each next iteration was exponientally slower than the previous s
+In case, we have $k$ jars to run our test, we will try a different approach. One of the requirements of the algorithm design was that each next iteration was exponientally slower than the previous one. Then, our plan is to start dividing the rungs into $n^(1/2)$ divisions, and when we find the point at which the jar breaks, take that section that goes from the previous division and the point on which the jar broke and divide that section into $n^(1/3)$ divisons, find that breaking point, and continue increasing the denominator in the exponent, so the number of checks we have to make exponentially decreases between iterations, while we get closer to the solution. 
 
 \subsection*{Pseudocode}
 
+\begin{algorithm}[H]
+\caption{My implementation}
+\begin{algorithmic}[1]
+\Function{Test}{start,end,k,jar}
+ \State{Divide the rungs into $n^(1/k+1)$ divisions}
+ \State {Find the step size $step = (start-end)/(number of divisions)$}
+ \While{Jar didnt break}
+  \State Increase drop distance by the step size $step$
+  \If {Drop distance is greater than the breaking point}
+   \State Jar k  breaks
+   \State Report highest safe rung, which would be $sr = r - step$
+   \If{We still have jars available}
+    \Call{Test}{k+1,previousrung,rungbroke}
+   \EndIf
+  \EndIf
+ \EndWhile
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
 \subsection*{Example}
 
+To prove that our algorithm works, we implemented it in Python, and we ran it over a sample dataset.
+
+\lstinputlisting[language=Python]{problem1b.py}
+
+Here are the results we obtained by running the algorithm over the sample dataset.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.8]{problem1b}
+\end{center}
+\caption{Results}
+\end{figure}
+
+Important note here, is that due to the requirements of this implementation, we might not be able to find the real highest safe rung, because the step size may skip the actual highest safe rung. To solve this I fixed step size to $1$ for when the number of divisions is just one, this way we can find the highest safe rung, even though it may not suffice the requirements of this problem.
+
 \subsection*{Time complexity analysis}
+
+For this problem, we recursively reduced the number of rungs we have to check to find the highest safe rung, then the time complexity for this implementation will be $n^1/2+n^1/3+...+n^(k+1)$ so the complexity in big-$O$ notation will be given by $O(n^(1/2))$.
 
 \section*{Butterfly Studies}
 
