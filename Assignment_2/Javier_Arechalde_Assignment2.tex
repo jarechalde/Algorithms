@@ -127,6 +127,7 @@ In case, we have $k$ jars to run our test, we will try a different approach. One
    \State Jar k  breaks
    \State Report highest safe rung, which would be $sr = r - step$
    \If{We still have jars available}
+
     \Call{Test}{k+1,previousrung,rungbroke}
    \EndIf
   \EndIf
@@ -154,7 +155,7 @@ Important note here, is that due to the requirements of this implementation, we 
 
 \subsection*{Time complexity analysis}
 
-For this problem, we recursively reduced the number of rungs we have to check to find the highest safe rung, then the time complexity for this implementation will be $n^1/2+n^1/3+...+n^(k+1)$ so the complexity in big-$O$ notation will be given by $O(n^(1/2))$.
+For this problem, we recursively reduced the number of rungs we have to check to find the highest safe rung, then the time complexity for this implementation will be $n^{1/2}+n^{1/3}+...+n^{k+1}$ so the complexity in big-$O$ notation will be given by $O(n^{1/2})$.
 
 \section*{Butterfly Studies}
 
@@ -190,7 +191,7 @@ We will start going tuple by tuple, if none of them have a group assigned, we wi
    \State Assign group $B$ to $m_i[1]$.
   \EndIf
  \EndIf
- \If{One of the members in the tuple has a group assigned}
+ \If{One of the members in the tuple has a group assigned}[[
   \If{Tuple in the same group}
    \State Assign $Group(m_i[0])$ to $m_i[1]$
   \ElsIf{Tuple in different group}
