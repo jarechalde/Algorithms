@@ -51,8 +51,10 @@ The current rung we are dropping our jars from is $r$, and the highest safe run 
 
 In case we are given 2 jars, $k = 2$, we will use one algorithm with a different approach, because if we use linear search, our solution will grow linearly, but if we use binary search, we will exceed the number of available jars we have for this problem.
 
-So in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the highest safe rung, and then go to the start of the previous division before it broke, and go to the next division, which is $n/m$ steps away from the previous division.
+In our implementation, we will try a different approach, so we make the best use of the two jars that we have available, while keeping our solution growing slower than linearly. We will divide the set of $n$ rungs into $m$ parts, each one of these parts containing $n/m$ parts.
 
+First we will use the first jar iterating over the $m$ parts until the jar breaks, by steps of size $n/m$. Once the first jar breaks, we will then start from the previous rung (distanced $n/m$ from the rung on which the jar broke) with the next jar, increasing the rungs by $1$, then the maximum safe rung will be the previous rung on which the jar broke.
+ 
 \subsection*{Pseudocode}
 
 \begin{algorithm}[H]
@@ -80,11 +82,11 @@ So in our solution, we will divide the ladder into $m$ divisions. This way, our 
 
 \subsection*{Example}
 
-Now, we will prove that our algorithm works, by implementing it and running it.
+In this section, we will show our implementation, and we will run it over a sample set.
 
 \lstinputlisting[language=Python]{Problem1a.py}
 
-In the image shown below, you can see the results of running this algorithm, in an example setup.
+In the image shown below, you can see the results of running this algorithm over the sample set.
 
 \begin{figure}[H]
 \begin{center}
@@ -94,6 +96,8 @@ In the image shown below, you can see the results of running this algorithm, in 
 \end{figure}
 
 \subsection*{Time complexity analysis}
+
+As we stated before, in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most, so then the time complexity of our implementation will be $O(m+n/m)$. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the rung on which the first jar breaks, and then go to the start of the previous division before it broke, then iterate towards next division, on steps of $1$, which is $n/m$ steps away, at most, from the next division.
 
 \subsection*{b.}
 
@@ -107,6 +111,11 @@ In case we are given 2 jars, $k = 2$, we will use one algorithm with a different
 
 So in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the highest safe rung, and then go to the start of the previous division before it broke, and go to the next division, which is $n/m$ steps away from the previous division.
 
+\subsection*{Pseudocode}
+
+\subsection*{Example}
+
+\subsection*{Time complexity analysis}
 
 \section*{Butterfly Studies}
 
