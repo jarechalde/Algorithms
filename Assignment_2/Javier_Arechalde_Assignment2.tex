@@ -92,7 +92,7 @@ In the image shown below, you can see the results of running this algorithm over
 \begin{center}
 \includegraphics[scale=.8]{problem1a}
 \end{center}
-\caption{Results of running algorithm}
+\caption{Results}
 \end{figure}
 
 \subsection*{Time complexity analysis}
@@ -110,6 +110,8 @@ The current rung we are dropping our jars from is $r$, and the highest safe run 
 In case we are given 2 jars, $k = 2$, we will use one algorithm with a different approach, because if we use linear search, our solution will grow linearly, but if we use binary search, we will exceed the number of available jars we have for this problem.
 
 So in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the highest safe rung, and then go to the start of the previous division before it broke, and go to the next division, which is $n/m$ steps away from the previous division.
+
+In case, we have $k$ jars to run our test, we will try a different approach. One of the requirements of the algorithm design was that each next iteration was exponientally slower than the previous s
 
 \subsection*{Pseudocode}
 
@@ -129,7 +131,7 @@ We want to determine if this set of $m$ comparisons is consistant, and thus, we 
 
 \subsection*{Overall idea}
 
-We will have a dictionary containing the $n$ different specimens that we want to separate. This way, we can check in only O(1), the group each specimen its assigned.
+We will have a dictionary containing the $n$ different specimens that we want to separate. This way, we can check in only $O(1)$, the group each specimen its assigned.
 
 We will have a set of $m$ tuples that dictaminates if both specimens are in 'S' (Same group) or 'D' (different group). We also assume that this set of tuples comes in order, starting first with the pairs that contain specimen 1, then the pairs that contain specimen 2, etc.
 
@@ -183,7 +185,17 @@ To prove that our algorithm works, we implemented it in Python, and we ran it ov
 
 \lstinputlisting[language=Python]{problem2.py}
 
+Here are the results we obtained by running the algorithm over the sample dataset.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.8]{problem2}
+\end{center}
+\caption{Results}
+\end{figure}
 
 \subsection*{Time complexity analysis}
+
+Our algorithm will run over all the tuples, this takes $O(m)$ time, because $m$ is the number of tuples in our dataset. Then, our algorithm will have to check at most, the $n$ specimens, to assign this specimens a group, this would take $O(n)$ time. So our algorithm time complexity will be $O(m+n)$ then.
 
 \end{document}
