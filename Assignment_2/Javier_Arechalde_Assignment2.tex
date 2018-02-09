@@ -37,23 +37,23 @@
 
 \subsection*{Model description}
 
-In this problem, we are doing some stress-testing on various models of glass jars, to determine the highest distance they can be dropped without breaking. 
+In this problem, we are stress-testing different models of glass jars, to determine the highes distance they can be dropped without breaking.
 
-We have a ladder with $n$ rungs, and we want to find the \textit{highest safe rung}, that is the distance that we described in the last paragraph. We also have $k$ jars, and this number of available jars, will be limited depending on the "budget" for the test.
+For the test setup we have a ladder with $n$ rungs, and as we stated before, we want to find the \textit{highest safe rung}, that is the maximum distance we can drop a jar from, without it breaking. For this test, we have $k$ jars available, this number of jars, will change depending, on the requirements of each type of test.
 
 \subsection*{a.}
 
-In this case our budget is limited to $k = 2$ and we want to find a solution $f(n)$ that grows slower than linearly. The breaking distance for the first jar $k_1$ is $bd$ and the breaking distance for the second jar $k_2$ is $bd$ too, as they are models of the same jar.
+In this case our budget is limited to $k = 2$ and we want to find a solution $f(n)$ that grows slower than linearly. The breaking distance for the first jar $k_1$ is $bd$ and the breaking distance for the second jar $k_2$ is $bd$ too, as they are two models of the same jar.
 
 The current rung we are dropping our jars from is $r$, and the highest safe run will be assigned to $sr$.
 
 \subsection*{Overall idea}
 
-In case we are given 2 jars, $k = 2$, we will use one algorithm with a different approach, because if we use linear search, our solution will grow linearly, but if we use binary search, we will exceed the number of available jars we have for this problem.
+In case we are given 2 jars, $k = 2$, we will use one algorithm with a different approach from linear or binary, because if we use linear search, our solution will grow linearly, but if we use binary search, we will exceed the number of available jars we have for this problem.
 
-In our implementation, we will try a different approach, so we make the best use of the two jars that we have available, while keeping our solution growing slower than linearly. We will divide the set of $n$ rungs into $m$ parts, each one of these parts containing $n/m$ parts.
+For running this test, we will divide the set of $n$ rungs into $m$ parts, each one of these parts containing $n/m$ parts.
 
-First we will use the first jar iterating over the $m$ parts until the jar breaks, by steps of size $n/m$. Once the first jar breaks, we will then start from the previous rung (distanced $n/m$ from the rung on which the jar broke) with the next jar, increasing the rungs by $1$, then the maximum safe rung will be the previous rung on which the jar broke.
+First we will use the first jar iterating over the $m$ parts until the jar breaks, by steps of size $n/m$. Once the first jar breaks, we will then start from the previous rung (distanced $n/m$ from the rung on which the jar broke) with the next jar, increasing the rungs by $1$, then the maximum safe rung will be the previous rung on which the second jar broke.
  
 \subsection*{Pseudocode}
 
@@ -61,9 +61,9 @@ First we will use the first jar iterating over the $m$ parts until the jar break
 \caption{My implementation}
 \begin{algorithmic}[1]
 \State At the beginning $r = 0$ and $k_1,k_2$ are not broken
-\State We have $n$ rungs, and we chose to divide our rungs into $m = 4$
+\State We have $n$ rungs, and we chose to separate our rungs into $m$ divisions
 \While{$k_1$ not broken}
- \State Start increasing distance
+ \State Start increasing distance in steps of $n/m$
  \State Saving last ring $r_0 = r$
  \State $r = r + n/m$
  \If{$r>bd$}
@@ -74,6 +74,7 @@ First we will use the first jar iterating over the $m$ parts until the jar break
 \While{$k_2$ not broken}
  \State r = r + 1
  \If{$r>bd$}
+  \State $k_2$ breaks at rung $r$
   \State We return $sr = r-1$, safest rung distance for the jars not to break
  \EndIf 
 \EndWhile
@@ -101,17 +102,13 @@ As we stated before, in our solution, we will divide the ladder into $m$ divisio
 
 \subsection*{b.}
 
-In this case, out budget is limited to $k$ jars, where $k>2$. We want to find the highest safe rung using at most $k$ jars. For each jar $k_i$ the number of times we drop whis jar should be less than the number of times we dropped the previous jar $k_{i-1}$ so $\lim_{n\to\infty} f_k(n)/f_{k-1}(n) = 0$.
+In this case, out budget is limited to $k$ jars, where $k>2$. We want to find the highest safe rung using at most $k$ jars. For each jar $k_i$ the number of times we drop whis jar should be reduced exponentially compared to the number of times we dropped the previous jar $k_{i-1}$ so $\lim_{n\to\infty} f_k(n)/f_{k-1}(n) = 0$.
 
 The current rung we are dropping our jars from is $r$, and the highest safe run will be assigned to $sr$.
 
 \subsection*{Overall idea}
 
-In case we are given 2 jars, $k = 2$, we will use one algorithm with a different approach, because if we use linear search, our solution will grow linearly, but if we use binary search, we will exceed the number of available jars we have for this problem.
-
-So in our solution, we will divide the ladder into $m$ divisions. This way, our algorithm will take $(m+n/m)$ steps at most. This can be explained because in the worst case scenario, we will need to go over all the $m$ divisions to find the highest safe rung, and then go to the start of the previous division before it broke, and go to the next division, which is $n/m$ steps away from the previous division.
-
-In case, we have $k$ jars to run our test, we will try a different approach. One of the requirements of the algorithm design was that each next iteration was exponientally slower than the previous one. Then, our plan is to start dividing the rungs into $n^(1/2)$ divisions, and when we find the point at which the jar breaks, take that section that goes from the previous division and the point on which the jar broke and divide that section into $n^(1/3)$ divisons, find that breaking point, and continue increasing the denominator in the exponent, so the number of checks we have to make exponentially decreases between iterations, while we get closer to the solution. 
+In case we have $k$ jars to run our test, we will try this approach. One of the requirements for the solution is that the number of times we had to drop the jar exponientally decreases with each iteration. To fulfill this requirement, we decided to divide the jars into $n^{1/(k+1)}$ divisions, at each step, being $n$ the distance we are working with, being the whole rung distance at the beginning of our algorithm, and decreasing to the space between the point the jar broke, and the previous rung, with was a step size away from that rung. This way, at each iteration of our algorithm, the number of divisions we divide our rungs in will exponentially decrease at each step.
 
 \subsection*{Pseudocode}
 
@@ -151,17 +148,17 @@ Here are the results we obtained by running the algorithm over the sample datase
 \caption{Results}
 \end{figure}
 
-Important note here, is that due to the requirements of this implementation, we might not be able to find the real highest safe rung, because the step size may skip the actual highest safe rung. To solve this I fixed step size to $1$ for when the number of divisions is just one, this way we can find the highest safe rung, even though it may not suffice the requirements of this problem.
+An important thing to note in this implementation, is that due to the nature of the algorithm, we may not be able to find the highest safe run, because our algorithm will skip it due to the step size. If we don't find a solution for this, we wont find the actual highest safe rung, but an approximation of it instead. My solution for this issue was to fix the step size when the number of divisions won't go lower than $1$. This way, even though we are not fullfilling the requierement set in the problem for the last step, we will be able to fing the actual highest safe rung rather than an approximation.
 
 \subsection*{Time complexity analysis}
 
-For this problem, we recursively reduced the number of rungs we have to check to find the highest safe rung, then the time complexity for this implementation will be $n^{1/2}+n^{1/3}+...+n^{k+1}$ so the complexity in big-$O$ notation will be given by $O(n^{1/2})$.
+For this problem, we recursively reduced the number of rungs we have to check to find the highest safe rung, then the run for this implementation will be $n^{1/2}+n^{1/3}+...+n^{1/(k+1)}$ so the complexity in big-$O$ notation will be given by $O(n^{1/2})$.
 
 \section*{Butterfly Studies}
 
 \subsection*{Model description}
 
-In this problem, we have $n$ butterflies, we want to separate then in two groups, let's call them $A$ and $B$. It doesn't matter in which group we classify each one of the butterflies, because we only want to separate them in two groups, we don't need to put them in the correct group.
+In this problem, we have $n$ butterflies, and we want to separate then in two groups. Let's call this groups $A$ and $B$. It doesn't matter in which group we classify each one of the butterflies, because we only want to separate them in two groups, we don't need to put them in an specific group.
 
 To complete this task, we are given a $m$ comparisons that dictaminate if the pair of specimens $i,j$ belong to the same group, or they are in two separate groups. This number of $m$ comparisons, is smaller than the possible number of pairs in the set of specimens, which is $n(n-1)/2$, because some pairs are ambiguous, which means that we are not sure if the pair belongs to the same group or not.
 
@@ -171,7 +168,7 @@ We want to determine if this set of $m$ comparisons is consistant, and thus, we 
 
 We will have a dictionary containing the $n$ different specimens that we want to separate. This way, we can check in only $O(1)$, the group each specimen its assigned.
 
-We will have a set of $m$ tuples that dictaminates if both specimens are in 'S' (Same group) or 'D' (different group). We also assume that this set of tuples comes in order, starting first with the pairs that contain specimen 1, then the pairs that contain specimen 2, etc.
+We will have a set of $m$ tuples that dictaminates if both specimens are in 'S' (Same group) or 'D' (different group). We also assume that this set of tuples comes in order, starting first with the pairs that contain specimen 1, then the pairs that contain specimen 2, etc. Otherwise, we should order the pairs first.
 
 We will start going tuple by tuple, if none of them have a group assigned, we will assign them to the same group, or to a different group, depending the notation on that tuple. If only one member of the tuple has a group assigned, we will assign the other tuple to the same group or the different one, according to the notation on that tuple. In the end, if both tuples have a group already assigned, we will proceed to check if this new notation is consistent or not. In the case it's not consistent, the whole classification is unconsistent, and we stop our algorihtm.
 
