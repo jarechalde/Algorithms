@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage[colorlinks]{hyperref}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\hypersetup{citecolor=DeepPink4}
+\hypersetup{linkcolor=DarkRed}
+\hypersetup{urlcolor=Blue}
+
+\usepackage{cleveref}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.0}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Assignment 2\par}
+	\vspace{1cm}
+	{\scshape\Large Algorithms \& Complexity (CIS 522-01)\par}
+	\vspace{1.5cm}
+	{\Large\itshape Javier Arechalde\par}
+	\vfill
+	{\large \today\par}
+\end{titlepage}
+
+\section*{1. Time-series data mining}
+
+\subsection*{1.1 Problem description}
+
+In this problem we will have a sequence of events, and we want to find out if this sequence of events is a subsequence of other longer sequence, but the events dont necessarily need to be consecutive.
+
+For example, we will have a sequence of events as follows:
+
+\begin{center}
+\texttt{buy Yahoo, buy eBay, buy Yahoo, buy Oracle}
+\end{center}
+
+And another longer sequence, which may or may not contain the subsequence of events shown above.
+
+\begin{center}
+\texttt{buy Amazon, buy Yahoo, buy eBay, buy Yahoo, buy Yahoo, buy Oracle}
+\end{center}
+
+The goal is to quickly detect if $S'$ is a subsequence of $S$.
+
+Then we will formulate this problem this way:
+
+Given two sequence of events, $S'$ of length $m$ and $S$ of length $n$ each containing an event possibly more than once, we want to find in time $O(m+n)$ if $S'$ is a subsequence of $S$.
+
+\subsection*{1.2 Proposed solution}
+
+We will iterate over the first array, and then over the second one.
+
+If we find the first array position in the second array, we will increment the position in the first array, and next iteration will start from the next position in the first array, and in the second array too.
+
+\subsection*{1.3 Pseudo code}
+
+\subsection*{1.4 Example}
+
+Here we should prove that our algorithm is correct too.
+
+\section*{1.5 Time complexity}
+
+\section*{2. Competition scheduling}
+
+\subsection*{1.1 Problem description}
+
+\subsection*{1.2 Proposed solution}
+
+\subsection*{1.3 Pseudocode}
+
+\subsection*{1.4 Example (Implementation)}
+
+Here we should prove that our algorithm is correct too.
+
+\subsection*{1.5 Time complexity}
+
+\end{document}
