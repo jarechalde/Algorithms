@@ -34,7 +34,8 @@ def comp(s1,s2):
     jpos = j
     continue
 
- #If the loop above didn't return that S1 is a subset of S2 we print the opposite
+ #If the loop above didn't return that S1 is a subset of S2
+ # we print the opposite
  print('S1 is not a subset of S2')
  return
 

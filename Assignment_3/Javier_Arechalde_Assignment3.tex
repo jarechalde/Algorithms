@@ -24,7 +24,7 @@
 
 \begin{titlepage}
 	\centering
-	{\scshape\LARGE Assignment 2\par}
+	{\scshape\LARGE Assignment 3\par}
 	\vspace{1cm}
 	{\scshape\Large Algorithms \& Complexity (CIS 522-01)\par}
 	\vspace{1.5cm}
@@ -37,31 +37,27 @@
 
 \subsection*{1.1 Problem description}
 
-In this problem we will have a sequence of events, and we want to find out if this sequence of events is a subsequence of other longer sequence, but the events dont necessarily need to be consecutive.
+In this problem, we will be given two sequences of events, and we want to find out if the first sequence of events is a subsequence of the second given sequence. The events of the first sequence must appear in the same order in the second sequence too, but they dont necessarily need to be consecutive.
 
-For example, we will have a sequence of events as follows:
+For example, we will be given the following sequence of events.
 
 \begin{center}
 \texttt{buy Yahoo, buy eBay, buy Yahoo, buy Oracle}
 \end{center}
 
-And another longer sequence, which may or may not contain the subsequence of events shown above.
+We will also be given this other sequence, which may, or may not contain the first given sequence.
 
 \begin{center}
 \texttt{buy Amazon, buy Yahoo, buy eBay, buy Yahoo, buy Yahoo, buy Oracle}
 \end{center}
 
-The goal is to quickly detect if $S'$ is a subsequence of $S$.
-
-Then we will formulate this problem this way:
-
-Given two sequence of events, $S'$ of length $m$ and $S$ of length $n$ each containing an event possibly more than once, we want to find in time $O(m+n)$ if $S'$ is a subsequence of $S$.
+These two sequence of events will be named $S'$ and $S$. Given these two sequence of events, $S'$ of length $m$ and $S$ of length $n$ each containing an event possibly more than once, we want to find in time $O(m+n)$ if $S'$ is a subsequence of $S$, in the fastest way possible.
 
 \subsection*{1.2 Proposed solution}
 
-In our implementation, we will iterate over the two arrays, to find if $S'$ is a subsequence of $S$.
+Our proposed solution is to iterate over the two sequences $S'$ and $S$ simultaneously, to find if the first sequence is a subsequence of the second one.
 
-We will start by taking the first element in $S'$, then we will start checking if we can find that element in $S$. If we find that element in $S$, we move to the next element in $S'$, and start seaching for the second element in $S$, starting from the $S$ position right after we found the first element of $S'$. If we can't find that element in $S$, that means we reached the final position in $S$ without finding that element, we will return that $S'$ is not a subset of $S$. If we find all the elements of $S'$ in $S$, we will return that $S'$ is a subset of $S$.
+We will start by taking the first element in $S'$, then we will iterating over the $S$ sequence to see if we can find that element. If we find that element in $S$, we move to the next element in $S'$, and start iterating to search for this second element in the sequence $S$, starting from the $S$ position right after the position on which we found the first element of $S'$. If we can't find that element in $S$, that means we iterated over all $S$ and reached the final position in $S$ without finding it. In that case we will return that $S'$ is not a subset of $S$. If we find all the elements of $S'$ in $S$, then we will return that $S'$ is a subset of $S$.
 
 \subsection*{1.3 Pseudo code}
 
@@ -92,7 +88,7 @@ We will start by taking the first element in $S'$, then we will start checking i
 
 \subsection*{1.4 Example}
 
-Here we should prove that our algorithm is correct too.
+We implemented the algorithm in \textit{Python}, if we run the script, the algorithm will iterate over the two sequences to find if the first sequence is a subsequence of the second sequence. If it is it will print that $S'$ is a subsequence of $S$, and the opposite otherwise.
 
 \lstinputlisting[language=Python]{DataM.py}
 
