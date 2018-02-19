@@ -59,11 +59,36 @@ Given two sequence of events, $S'$ of length $m$ and $S$ of length $n$ each cont
 
 \subsection*{1.2 Proposed solution}
 
-We will iterate over the first array, and then over the second one.
+In our implementation, we will iterate over the two arrays, to find if $S'$ is a subsequence of $S$.
 
-If we find the first array position in the second array, we will increment the position in the first array, and next iteration will start from the next position in the first array, and in the second array too.
+We will start by taking the first element in $S'$, then we will start checking if we can find that element in $S$. If we find that element in $S$, we move to the next element in $S'$, and start seaching for the second element in $S$, starting from the $S$ position right after we found the first element of $S'$. If we can't find that element in $S$, that means we reached the final position in $S$ without finding that element, we will return that $S'$ is not a subset of $S$. If we find all the elements of $S'$ in $S$, we will return that $S'$ is a subset of $S$.
 
 \subsection*{1.3 Pseudo code}
+
+\begin{algorithm}[H]
+\caption{Checking if $S'$ subset of $S$}
+\begin{algorithmic}[1]
+\State We initialize $i_{pos} = j_{pos} = 0$
+\While {We didnt reach the end of $S$ or $S'$}
+ \State Take $S(i_{pos})$
+ \For {$j$ in range $j_{pos} \to length(S)$}
+  \If{$S'(i_{pos}) == S(j_{pos})$}
+   \If{$i_{pos} == length(S')$}
+    \State $S'$ is a subsequence of $S$
+   \EndIf
+   \If{$i_{pos} \neq length(S')$}
+    \State $i_{pos}++$
+    \State $j_{pos} = j$
+    \State Break the loop
+   \EndIf
+  \EndIf
+  \If{$S'(i_{pos}) \neq S(j_{pos})$}
+   \State $j++$
+  \EndIf
+ \EndFor
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
 
 \subsection*{1.4 Example}
 
