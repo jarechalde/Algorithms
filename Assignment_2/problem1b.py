@@ -9,7 +9,7 @@ r0 = 0 #Starting rung
 kmax = 12 # Maximum number of jars for the test
 
 def test(start,end,k,jar):
- print('Starting rung: %i Ending rung: %i' %(start,end))
+ print('Starting rung: %i Ending rung: %i Length: %i' %(start,end,end-start))
  jar = 'OK' #We set the status of the current jar to OK
  r = start #Starting rung
  #We calculate the step size and the number of divisions
@@ -23,7 +23,7 @@ def test(start,end,k,jar):
 
  #If the number of divisions is only one, we will fix the step
  #size to 1
- if div == 1:
+ if step>(end-start) or div == 1:
   step = 1
 
  print('Divisions: %i Step size: %i' %(div,step))
