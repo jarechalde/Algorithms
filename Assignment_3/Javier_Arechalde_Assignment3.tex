@@ -94,7 +94,11 @@ We will start by taking the first element in $S'$, then we will start checking i
 
 Here we should prove that our algorithm is correct too.
 
+\lstinputlisting[language=Python]{DataM.py}
+
 \section*{1.5 Time complexity}
+
+In worst case scenario, the last element of $S'$ will be in the last position of $S$, therefore, we would have iterated over both lists to check if $S'$ is a subset of $S$. As the length of $S'$ is $m$ and the length of $S$ is $n$, the time complexity of our implementation will be $O(m+n)$.
 
 \section*{2. Competition scheduling}
 
