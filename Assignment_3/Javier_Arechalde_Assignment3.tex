@@ -56,7 +56,7 @@ These two sequence of events will be named $S'$ and $S$. Given these two sequenc
 \subsection*{1.2 Proposed solution}
 
 Our proposed solution is to iterate over the two sequences $S'$ and $S$ simultaneously, to find if the first sequence is a subsequence of the second one.
-
+s
 We will start by taking the first element in $S'$, then we will iterating over the $S$ sequence to see if we can find that element. If we find that element in $S$, we move to the next element in $S'$, and start iterating to search for this second element in the sequence $S$, starting from the $S$ position right after the position on which we found the first element of $S'$. If we can't find that element in $S$, that means we iterated over all $S$ and reached the final position in $S$ without finding it. In that case we will return that $S'$ is not a subset of $S$. If we find all the elements of $S'$ in $S$, then we will return that $S'$ is a subset of $S$.
 
 \subsection*{1.3 Pseudo code}
@@ -100,7 +100,19 @@ In worst case scenario, the last element of $S'$ will be in the last position of
 
 \subsection*{1.1 Problem description}
 
+In this problem, we want to host a competition. In this competition, we planned to do a mini-thriathlon, in which we will have to swim 20 laps of a pools, then bike for 10 miles, and then run 3 miles.
+
+The competition must follow this rule:  no more than one person can be swimming in the pool at a time.
+
+Each one of the contestants has a projected \textit{swimming time}, a projected \textit{biking time}, and a projected \textit{running time}. These are the times that will take each one of the constestants to complete each one of de different sections of the thriatlon.
+
+Our goal is to design an efficient algorithm that produces an schedule whose competition's completion time is as small as possible.
+
+We will name each one of the contestants $c_i$, and each one of this contestants will have a \{$st_i,bt_i,rt_i$\} that will be the projected time for each of the sections of the thriatlon.
+
 \subsection*{1.2 Proposed solution}
+
+This problem is a classic problem of minimizing lateness.
 
 \subsection*{1.3 Pseudocode}
 
