@@ -1,0 +1,24 @@
+
+
+Contestant ID: 1
+Start Swimming: 0 End Swimming: 1
+Start Biking: 1 End Biking: 2
+Start Running: 2 End Running: 4
+
+
+Contestant ID: 3
+Start Swimming: 1 End Swimming: 4
+Start Biking: 4 End Biking: 6
+Start Running: 6 End Running: 9
+
+
+Contestant ID: 4
+Start Swimming: 4 End Swimming: 8
+Start Biking: 8 End Biking: 12
+Start Running: 12 End Running: 17
+
+
+Contestant ID: 2
+Start Swimming: 8 End Swimming: 10
+Start Biking: 10 End Biking: 14
+Start Running: 14 End Running: 20

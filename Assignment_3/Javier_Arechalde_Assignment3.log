@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  21 FEB 2018 12:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  21 FEB 2018 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,6 +561,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip119
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks23
+\verbatim@line=\toks24
+\verbatim@in@stream=\read1
+)
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
@@ -568,7 +574,7 @@ nment
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks23
+\@float@every@algorithm=\toks25
 \c@algorithm=\count159
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
@@ -609,20 +615,20 @@ Package cleveref Info: `listings' support loaded on input line 2950.
 (./Javier_Arechalde_Assignment3.aux)
 \openout1 = `Javier_Arechalde_Assignment3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 \c@lstlisting=\count167
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -632,12 +638,12 @@ LaTeX Font Info:    ... okay on input line 23.
 \scratchbox=\box52
 \nofMPsegments=\count169
 \nofMParguments=\count170
-\everyMPshowfont=\toks24
+\everyMPshowfont=\toks26
 \MPscratchCnt=\count171
 \MPscratchDim=\dimen161
 \MPnumerator=\count172
 \makeMPintoPDFobject=\count173
-\everyMPtoPDFconversion=\toks25
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -657,7 +663,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box53
-Package hyperref Info: Link coloring ON on input line 23.
+Package hyperref Info: Link coloring ON on input line 25.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -667,9 +673,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count174
 )
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
 
 (./Javier_Arechalde_Assignment3.out) (./Javier_Arechalde_Assignment3.out)
 \@outlinefile=\write3
@@ -680,12 +686,12 @@ LaTeX Info: Redefining \nameref on input line 23.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 65.
+put line 67.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.88 
+l.90 
       [1] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -711,145 +717,159 @@ Overfull \hbox (9.0036pt too wide) in paragraph at lines 37--38
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
+)
+File: OutputProblem1.txt  (verbatim)
+ [3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 119.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) 
-has been already used, duplicate ignored
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 119.
+
+Overfull \hbox (20.6872pt too wide) in paragraph at lines 131--133
+\OT1/cmr/m/n/10 tant $\OML/cmm/m/it/10 sched\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i
+\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 start[]\OT1/cmr/m/n/10 [
+\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; end[]\OT1/cmr/m/n/10 [\OM
+L/cmm/m/it/10 i\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; start[]\OT1/cmr/m/n/10 [\OML
+/cmm/m/it/10 i\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; end[]\OT1/cmr/m/n/10 [\OML/cm
+m/m/it/10 i\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; start[]\OT1/cmr/m/n/10 [\OML/cmm
+/m/it/10 i\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; end[]\OT1/cmr/m/n/10 [\OML/cmm/m/
+it/10 i\OT1/cmr/m/n/10 ]\OMS/cmsy/m/n/10 g$
+ []
+
+[4]pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1
+}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.130 \State
+l.139 \State
              First we sort the students by completion time using QuickSortpdfTe
 X warning (ext4): destination with the same identifier (name{ALG@line.2}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.131 \Function
+l.140 \Function
                {Quicksort}{array}pdfTeX warning (ext4): destination with the sa
 me identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.132  \If
+l.141  \If
           {Array length is $1$}pdfTeX warning (ext4): destination with the same
  identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135  \EndIf
+l.144  \EndIf
              pdfTeX warning (ext4): destination with the same identifier (name{
 ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.136  \If
+l.145  \If
           {Array length $ > 1$}pdfTeX warning (ext4): destination with the same
  identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137   \State
+l.146   \State
                $pivot == array[0]$pdfTeX warning (ext4): destination with the s
 ame identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.138   \For
+l.147   \For
             {Element in array}pdfTeX warning (ext4): destination with the same 
 identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.139    \If
+l.148    \If
             {$element<pivot$}pdfTeX warning (ext4): destination with the same i
 dentifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.140     \State
+l.149     \State
                  We add the element to the lowerlistpdfTeX warning (ext4): dest
 ination with the same identifier (name{ALG@line.10}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.141    \EndIf
+l.150    \EndIf
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.142    \If
+l.151    \If
             {$element>pivot$}pdfTeX warning (ext4): destination with the same i
 dentifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.143     \State
+l.152     \State
                  We add element to the upperlistpdfTeX warning (ext4): destinat
 ion with the same identifier (name{ALG@line.13}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.144    \EndIf
+l.153    \EndIf
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145    \If
+l.154    \If
             {d}pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.146     \State
+l.155     \State
                  Append element to the pivotlistpdfTeX warning (ext4): destinat
 ion with the same identifier (name{ALG@line.16}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.147    \EndIf
+l.156    \EndIf
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.148   \EndFor
+l.157   \EndFor
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.149   \State
+l.158   \State
                upperlist = \Call{quicksort}{upperlist}pdfTeX warning (ext4): de
 stination with the same identifier (name{ALG@line.19}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.150   \State
-               lowerlist = \Call{quicksort}{lowerlist} [4]
+l.159   \State
+               lowerlist = \Call{quicksort}{lowerlist} [5]
 Overfull \vbox (34.89157pt too high) has occurred while \output is active []
 
 
-[5] (./Schedule.py
+[6] (./Schedule.py
 Overfull \hbox (129.00482pt too wide) in paragraph at lines 1--2
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (117.0047pt too wide) in paragraph at lines 12--13
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 13--14
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (63.00415pt too wide) in paragraph at lines 28--29
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 27--28
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (57.00409pt too wide) in paragraph at lines 32--33
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 31--32
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[6]
-Overfull \hbox (93.00446pt too wide) in paragraph at lines 53--55
+[7]
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 52--54
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (159.00513pt too wide) in paragraph at lines 55--56
+Overfull \hbox (159.00513pt too wide) in paragraph at lines 54--55
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -869,34 +889,35 @@ Overfull \hbox (3.00354pt too wide) in paragraph at lines 83--84
  []
 
 
-Overfull \hbox (3.00354pt too wide) in paragraph at lines 84--85
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 84--86
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (81.00433pt too wide) in paragraph at lines 87--88
+[8]
+Overfull \hbox (81.00433pt too wide) in paragraph at lines 86--87
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
+)
+File: OutputProblem2.txt  (verbatim)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 205.
+ [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 205.
  (./Javier_Arechalde_Assignment3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 205.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 205.
 Package rerunfilecheck Info: File `Javier_Arechalde_Assignment3.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18377 strings out of 493029
- 326322 string characters out of 6136235
- 435077 words of memory out of 5000000
- 21563 multiletter control sequences out of 15000+600000
+ 18409 strings out of 493029
+ 326910 string characters out of 6136235
+ 435708 words of memory out of 5000000
+ 21590 multiletter control sequences out of 15000+600000
  7675 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,43p,10450b,1858s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,43p,10450b,1874s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
@@ -904,16 +925,15 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Javier_Arechalde_Assignment3.pdf (9 pages, 186016 bytes).
+/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Javier_Arechalde_Assignment3.pdf (10 pages, 185110 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
- 306 compressed objects within 4 object streams
+ 334 PDF objects out of 1000 (max. 8388607)
+ 305 compressed objects within 4 object streams
  199 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

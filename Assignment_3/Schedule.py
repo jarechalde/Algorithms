@@ -1,9 +1,10 @@
 #We will first create a  list that contains the participants in the competition
 #and their swimming time, biking time, and running time
 contestants = [
-(1,2,3), #Contestant #1
-(2,3,10), #...
-(4,5,3)  #Contestant #N
+(1,1,2,3), #Contestant #1
+(2,4,6,6), #Contestant #2  
+(3,2,3,5),#...
+(4,4,5,3)  #Contestant #N
 ]
 
 #Deadlines list
@@ -12,9 +13,7 @@ deadline = [0]*len(contestants)
 #We calculate the total deadline for swimming for each one of the contestants
 for i in range(0,len(contestants)):
  contestant = contestants[i]
- deadline[i] = sum(contestant)
-
-print(deadline)
+ deadline[i] = sum(contestant[1:4])
 
 def quicksort(array,array0):
  upperlist = []
@@ -59,9 +58,10 @@ schedule,sortcont = quicksort(deadline, contestants)
 s_swim = 0 
 
 #Now we will start scheduling the events
-for contestant in contestants:
+for contestant in sortcont:
 
- print("Contestant: ",contestant)
+ print("\n")
+ print("Contestant ID: %i" %contestant[0])
 
  #The time that will take the contestant to finish each one of the sections
  t_swim = contestant[0] 
@@ -82,7 +82,6 @@ for contestant in contestants:
  print("Start Swimming: %i End Swimming: %i" %(s_swim,f_swim))
  print("Start Biking: %i End Biking: %i" %(s_bike,f_bike))
  print("Start Running: %i End Running: %i" %(s_run,f_run))
- print("\n")
 
  #The next contestant will start swimming when the previous one is done
  s_swim = f_swim
