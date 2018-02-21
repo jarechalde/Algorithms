@@ -114,7 +114,21 @@ We will name each one of the contestants $c_i$, and each one of this contestants
 
 This problem is a classic problem of minimizing lateness.
 
+In this case, we will have one single resource, the pool, and n requests to use this resource for an interval of time.
+
+Our implementation will consist in a \textit{greedy} algorithm, that follows the \textit{Earliest Deadline First} rule, that is sort the jobs in increasing deadline order, and schedule first the jobs that end earlier.
+
+For this problem, the deadline will be the sum of the three projected times for all each contestant's thriatlon.
+
+We will return a set of scheduled intervals for each contestant $sched_i = [s(i),f_1(i),f_2(i),f_3(i)]$ for each one of the contestants.
+
 \subsection*{1.3 Pseudocode}
+
+\begin{algorithm}[H]
+\caption{Competition scheduling implementation}
+\begin{slgorithmic}[1]
+\end{algorithmic}
+\end{algorithm}
 
 \subsection*{1.4 Example (Implementation)}
 
