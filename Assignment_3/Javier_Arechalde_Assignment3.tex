@@ -126,34 +126,54 @@ We will return a set of scheduled intervals for each contestant $sched_i = [s(i)
 
 \begin{algorithm}[H]
 \caption{Competition scheduling implementation}
-\begin{slgorithmic}[1]
+\begin{algorithmic}[1]
 \State First we sort the students by completion time using QuickSort
 \Function{Quicksort}{array}
  \If{Array length is $1$}
+
   \Return array
  \EndIf
- \ElseIf
+ \If{Array length $ > 1$}
   \State $pivot == array[0]$
   \For{Element in array}
    \If{$element<pivot$}
-    \State We add the element to the lower list
+    \State We add the element to the lowerlist
    \EndIf
    \If{$element>pivot$}
-    \State We add element to the upper_list
+    \State We add element to the upperlist
    \EndIf
-   \Else
-    \State Append element to the pivot_list
+   \If{d}
+    \State Append element to the pivotlist
    \EndIf
   \EndFor
-  \State upper_list = \Call{quicksort}{upper_list}
-  \State lower_list = \Call{quicksort}{lower_list}
+  \State upperlist = \Call{quicksort}{upperlist}
+  \State lowerlist = \Call{quicksort}{lowerlist}
  \EndIf
- \State Return lower_list + pivot_list + upper_list
-\EndFunction 
-
-\State now we will start scheduling the students by increasing deadline
+ \State Return lowerlist + pivotlist + upperlist
+\EndFunction
+\State
+\State Now we will start scheduling the students by increasing deadline
+\State We initialize start time of swimming: $s_{swim} = 0$
 \While{We didn't schedule all students}
+
+ \State Get the timings for the corresponding participant
+ \State Time swimming: $t_{swim}$
+ \State Time biking: $t_{biking}$
+ \State Time running $t_{running}$
  \State
+ \State Swimming start and finish
+ \State $f_{swim} = s_{swim} + t_{swim}$
+ \State
+ \State Biking start and finish
+ \State $s_{bike} = f_{swim}$
+ \State $f_{bike} = s_{bike} + t_{bike}$
+ \State
+ \State Running start and finish
+ \State $s_{run} = f_{bike}$
+ \State $f_{run} = s_{run} + t_{run}$
+ \State
+ \State We return the start and finish time for each one of the sections
+
 \EndWhile
 \end{algorithmic}
 \end{algorithm}
@@ -161,6 +181,8 @@ We will return a set of scheduled intervals for each contestant $sched_i = [s(i)
 \subsection*{1.4 Example (Implementation)}
 
 Here we should prove that our algorithm is correct too.
+
+\lstinputlisting[language=Python]{Schedule.py}
 
 \subsection*{1.5 Time complexity}
 
