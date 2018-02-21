@@ -127,6 +127,34 @@ We will return a set of scheduled intervals for each contestant $sched_i = [s(i)
 \begin{algorithm}[H]
 \caption{Competition scheduling implementation}
 \begin{slgorithmic}[1]
+\State First we sort the students by completion time using QuickSort
+\Function{Quicksort}{array}
+ \If{Array length is $1$}
+  \Return array
+ \EndIf
+ \ElseIf
+  \State $pivot == array[0]$
+  \For{Element in array}
+   \If{$element<pivot$}
+    \State We add the element to the lower list
+   \EndIf
+   \If{$element>pivot$}
+    \State We add element to the upper_list
+   \EndIf
+   \Else
+    \State Append element to the pivot_list
+   \EndIf
+  \EndFor
+  \State upper_list = \Call{quicksort}{upper_list}
+  \State lower_list = \Call{quicksort}{lower_list}
+ \EndIf
+ \State Return lower_list + pivot_list + upper_list
+\EndFunction 
+
+\State now we will start scheduling the students by increasing deadline
+\While{We didn't schedule all students}
+ \State
+\EndWhile
 \end{algorithmic}
 \end{algorithm}
 
