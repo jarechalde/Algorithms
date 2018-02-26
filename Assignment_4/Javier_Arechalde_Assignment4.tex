@@ -37,15 +37,38 @@
 
 \section*{Part A: Read the solved exercises and Practice}
 
-\subsection*{Solved excercise #1 in Chapter 5}
+\subsection*{Solved excercise \#1 in Chapter 5}
 
 \subsubsection*{Algorithm Pseudocode}
 
+\begin{algorithm}[H]
+\caption{Finding maximum pseudocode}
+\begin{algorithmic}[1]
+\Function{Findmaximum}{$pos_{start},pos_{end},array$}
+ \State $n = \frac{pos_{start}+pos_{end}}{2}$
+ \If{$array(\frac{n}{2}-1)<array(\frac{n}{2})<array(\frac{n}{2}+1)$}
+  \State We have a \textbf{positive slope}, so we havent reached the maximum yet
+  \State \Call{Findmaximum}{$(pos_{start}+pos_{end})/2, pos_{end}, array$}
+ \ElsIf{$array(\frac{n}{2}-1)>array(\frac{n}{2})>array(\frac{n}{2}+1)$}
+  \State We have a \textbf{negative slope}, we already passed the maximum
+  \State \Call{Findmaximum}{$pos_{start},(pos_{start}+pos_{end})/2$}
+ \ElsIf{$array(\frac{n}{2}-1)>array(n/2)<array(\frac{n}{2}+1)$}
+  \State We have found the \textbf{maximum point}
+  \State \Return value(n/2)
+ \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
 \subsubsection*{Solution for problem instance of size $10$}
+
+In this case, we will run our algorithm, when we have an instance of size $10$.
+
+In this problem's scope, we will have an array of numbers that have a positive slope that goes until a maximum, followed my.
 
 \subsubsection*{Time Complexity}
 
-\subsection*{Solved exercise #2 in Chapter 5}
+\subsection*{Solved exercise \#2 in Chapter 5}
 
 \subsubsection*{Algorithm Pseudocode}
 
