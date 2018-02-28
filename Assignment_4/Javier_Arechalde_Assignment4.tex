@@ -108,9 +108,9 @@ The goal is to find, without having to check each possible combination of days, 
 \caption{Stocks Divide-and-Conquer pseudocode}
 \begin{algorithmic}[1]
 \Function{Max}{list}
- \State $max$
+ \State $max = list[0]$
  \For{element in list}
-  \If{$element>max \quad \textbf{or} \quad max == NA$}
+  \If{$element>max}
    \State max = element
   \Else{}
    \State \textbf{continue}
@@ -120,9 +120,9 @@ The goal is to find, without having to check each possible combination of days, 
 \EndFunction
 \State
 \Function{Min}{list}
- \State $min$
+ \State $min = list[0]$
  \For{element in list}
-  \If{$element<min \quad \textbf{or} \quad min == NA$}
+  \If{$element<min}
    \State min = element
   \Else{}
    \State \textbf{continue}
