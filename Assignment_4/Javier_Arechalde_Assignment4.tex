@@ -49,7 +49,7 @@ Our goal is to find that peak entry $p$ without having to read the entire array,
 \caption{Finding maximum pseudocode}
 \begin{algorithmic}[1]
 \Function{Findmaximum}{$pos_{start},pos_{end},array$}
- \State $n = \frac{pos_{start}+pos_{end}}{2}$
+ \State $n = (pos_{start}+pos_{end})/(2)$
  \If{$array(\frac{n}{2}-1)<array(\frac{n}{2})<array(\frac{n}{2}+1)$}
   \State We have a \textbf{positive slope}, so we havent reached the maximum yet
   \State \Call{Findmaximum}{$(pos_{start}+pos_{end})/2, pos_{end}, array$}
@@ -90,7 +90,7 @@ $$max = 21$$
 
 \subsubsection*{Time Complexity}
 
-In this problem, with each one of the calls, we reduce the problem to one of at most half the size of the initial problem. Then:
+In this problem, with each one of the recursive calls, we reduce the problem to one of at most half the size of the initial problem. Then:
 
 $$T(n)\leq T(n/2) + c$$
 
@@ -98,57 +98,142 @@ when $n>2$, and
 
 $$T(2)\leq c.$$
 
-Then, we can prove this by unrolling, and the running time of our algorithm will be $\log n$.
+Then, the running time of our algorithm will be $O(\log n)$.
 
 \subsection*{Solved exercise \#2 in Chapter 5}
 
 In this problem, we have an investment company that looks at $n$ consecutive days of a given stock. For each of these days, the stock has a price $p(i)$ per share for the stock on that day. We assume that the stock prize was fixed on that day.
 
-The goal is to find, without having to check each possible combination of days, which will take $O(n^2)$, in which day they should have bought the shares, and in which day they must have solved them to make as much money as possible.
+The goal is to find, without having to check each possible combination of days, which will take $O(n^2)$, in which day they should have bought the shares, and in which day they must have sold them to make as much money as possible.
 
 \subsubsection*{Algorithm Pseudocode}
 
 \begin{algorithm}[H]
 \caption{Stocks Divide-and-Conquer pseudocode}
 \begin{algorithmic}[1]
-\Function{FindOpt}{Set}
- \If{length(Set)>2}
- \EndIf
- \Else{}
- \EndIf
+\Function{Max}{list}
+ \State $max$
+ \For{element in list}
+  \If{$element>max \quad \textbf{or} \quad max == NA$}
+   \State max = element
+  \Else{}
+   \State \textbf{continue}
+  \EndIf
+ \EndFor
+ \State \Return max
 \EndFunction
+\State
+\Function{Min}{list}
+ \State $min$
+ \For{element in list}
+  \If{$element<min \quad \textbf{or} \quad min == NA$}
+   \State min = element
+  \Else{}
+   \State \textbf{continue}
+  \EndIf
+ \EndFor
+ \State \Return min
+\EndFunction
+\State
+\Function{FindOpt}{$array$}
+\If{$len(array)>2$}
+ \State $Larray = array[0:len(array)/2]$
+ \State $Rarray = array[len(array)/2:len(array)]$
+ \State
+ \State LSide = \Call{FindOpt}{$Larray$}
+ \State RSide = \Call{FindOpt}{$Rarray$}
+ \State
+ \State LOpt = LSide[1] - LSide[0]
+ \State ROpt = RSide[1] - RSide[0]
+ \State MOpt = \Call{Max}{RSide} - \Call{Min}{LSide}
+ \State
+ \State Marray = [min(LSide),max(RSide)]
+ \State
+ \State maxvalue = \Call{Max}{LOpt,ROpt,MOpt}
 
-
-\For{$i \in S$}
- \If{$S[i]<min$}
-  \State $min = S[i]$
+ \If {$maxvalue == LOpt$}
+  \State \Return LSide
+ \ElsIf{$maxvalue == ROpt$}
+  \State \Return RSide
+ \ElsIf{$maxvalue == MOpt$}
+  \State \Return Marray
  \EndIf
- \Else{}
-  \State Continue
- \EndIf
-\EndFor
-\For{$j \in S'$}
- \If{$S'[j]>max$}
-  \State $max = S'[j]$
- \EndIf
- \Else{}
-  \State Continue
- \EndIf
-\EndFor
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}[H]
-\caption{Stocks Divide-and-Conquer pseudocode}
-\begin{algorithmic}[1]
-\Function{FindOpt}{$Set,start_{pos},end_{pos}$}
+ \State
+\ElsIf{$len(array) <= 2$}
+ \State \Return array
+\EndIf
 \EndFunction
 \end{algorithmic}
 \end{algorithm}
 
 \subsubsection*{Solution for problem instance of size $10$}
 
+Now we will compute a solution using our algorithm for a problem instance of size 10.
+
+This will be the set we are going to work with.
+
+$$S = [7,4,3,2,5,7,10,20,14,7]$$
+
+First, as the array is longer than 2, we will divide it into two sets recursively until we have arrays of length smaller or equal to 2.
+
+$$[7,4,3,2,5] \quad [7,10,20,14,7]$$
+
+$$[7,4] \quad [3,2,5] \quad [7,10] \quad [20,14,7]$$
+
+$$[7,4] \quad [3,2] \quad [5] \quad [7,10] \quad [20,14] \quad [7]$$
+
+Now we are going to compare set by set, if the optimal solution between one set, compare it with the other set, and compare it also with the maximum of the "right" set and the minimum of the "left" set, and see which one gives us a better solution.
+
+$$[7,4] \quad \& \quad [3,2]$$
+
+$$OptL = 4-7 = -3 \quad OptR = 2-3 = -1 \quad OptM = 3-4 = -1$$
+
+$$[5] \quad \& \quad [7,10]$$
+
+$$OptM = 10-5 = 5 \quad OptR = 3$$
+
+$$[20,14] \quad  \& \quad [7]$$
+
+$$OptL = -6 \quad OptM = 7-14 = -7$$
+
+We return $[3,2] \quad [5,10] \quad [20,14]$.
+
+Now we have:
+
+$$[3,2] \quad [5,10] \quad [20,14]$$
+
+Lets start comparing.
+
+$$[3,2] \quad \& \quad [5,10]$$
+
+$$OptL = -1 \quad OptR = 5 \quad OptM = 10 - 2 = 8$$
+
+We return $[2,10]$.
+
+Now we have:
+
+$$[2,10] \quad \& \quad [20,14]$$
+
+$$OptL = 8 \quad OptR = -6 \quad OptM = 18$$
+
+We finally return $[2,20]$, and that will be our final result.
+
 \subsubsection*{Time Complexity}
+
+As we said, in this problem, we will have to recursively subdivide our array, and take the best possible solution out of this three possible solutions:
+
+\begin{itemize}
+ \item The optimal solution on $S$
+ \item The optimal solution on $S'$
+ \item the optimal solution of $p(j)-p(i)$, over $i \in S$ and $j \in S'$.
+\end{itemize}
+
+The first two items are computed, in time $T(n/2)$ by recursion, and the third item is computed by finding the maximum in $S'$ and the minimum in $S$, which can be done in $O(n)$ time. Then our running time $T(n)$ satisfies
+
+$$T(n) \leq 2T(\frac{n}{2})+O(n)$$,
+
+Then the time complexity of our implementation will be $O(n\log n)$.
+
 
 \section*{Part B: Problem Solving}
 
