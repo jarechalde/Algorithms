@@ -245,6 +245,8 @@ In this problem, we are given a sequence of $n$ numbers $a_1,...,a_n$, which we 
 
 Our goal is to count the number of \textit{significant inversions} between two orderings, using an algorithm that has $O(n \log n)$ time complexity.
 
+We also added some improvements to the pseudocode. If for example, while we are merging the two sorted arrays, we finish adding elements from one array while there are still elements available in the other array, we will add this remaining elements and exit the while loop.
+
 \subsubsection*{Pseudocode}
 
 \begin{algorithm}[H]
@@ -252,29 +254,29 @@ Our goal is to count the number of \textit{significant inversions} between two o
 \begin{algorithmic}[1]
 \Function{CountInversions}{array}
  \If{$length(array)>2$}
-  \State Divide the array in two
-  \State $array_left = array[0:mid]$
-  \State $array_{right} = array[mid:end]$
-  \State Now we recursively divide the array
+  \State Divide the array in two halves $array_{left}$ and $array_{right}$ and
+  \State recursively call this function
   \State $array_{left} = \Call{CountInversions}{array_{left}}$
   \State $array_{right} = \Call{CountInversions}{array_{right}}$
-  \While{We havent sorted $array_left$ and $array_{right}$}
-   \If{We added all the elements in $array_left$}
-    \State Take one element from $array_{left}$ and another one from $array_right$
-    \State $value_left$ and $value_{right}$
-    \State $array_{sorted} = array_{sorted} + array_{right}$
+  \While{We havent sorted $array_{left}$ and $array_{right}$}
+   \State $value_{left}  = array_{left}[i]$ and $value_{right} = array_{right}[k]$
+   \If{We added all the elements in $array_{left}$}
+    \State $array_{sorted} = array_{sorted} + array_{right}[j:end]$
+    \State Break loop
+   \ElsIf{We added all the elements in $array_{right}$}
+    \State $array_{sorted} = array_{sorted} + array_{left}[i:end]$
+    \State Break loop
    \EndIf
-   \If{We added all the elements in $array_right$}
-    \State $array_{sorted} = array_{sorted} + array_{left}$
-   \EndIf
-   
-   \If{Element in $value_{left}<value_{right}$}
-    \State Add that element to $array_{sorted}$
+   \If{$value_{left}<value_{right}$}
+    \State Add $value_{left}$ to the end of$array_{sorted}$
+    \State i++
    \Else
-    \If{Element in $value_{left}>2*value_{right}$}
-     \State That means that all the elements remaining in the $array_{left}$ are also greater
-     \State thant the element being checked into the right array, so we add as many numbers come
-     \State after the value in the right array to the count of significant inversions.
+    \State Add $value_{right}$ to the end of$array_{sorted}$
+    \State j++
+    \If{$value_{left}>2*value_{right}$}
+     \State All the elements from position $i$ to the end will be greater
+     \State too as $array_{left}$ is sorted in increasing order
+     \State $N_{inv} = N_{inv} + length(array_{left}) - i$
     \EndIf
    \EndIf
   \EndWhile
@@ -286,7 +288,7 @@ Our goal is to count the number of \textit{significant inversions} between two o
   \If{$array[0]<array[1]$}
    \State \Return $array[0],array[1]$
   \Else
-   \If{$array[0]>2*array[0]$}
+   \If{$array[0]>2*array[1]$}
     \State $N_{inv}++$
    \EndIf
    \State \Return $array[1],array[0]$
@@ -296,6 +298,12 @@ Our goal is to count the number of \textit{significant inversions} between two o
 \end{algorithmic}
 \end{algorithm}
 
+\subsubsection*{Implementation}
+
+Here is the code for the implementation of the \textit{pseudocode} shown above.
+
+\lstinputlisting[language=Python]{Problem52.py}
+
 \subsubsection*{Running time}
 
 Our algorithm uses mergesort to sort the array and count the number of significant inversions at the same time, so the running time of our algorithm will be $O(n\log n)$
@@ -304,19 +312,42 @@ Our algorithm uses mergesort to sort the array and count the number of significa
 
 \subsubsection*{Problem Model}
 
-In this problem, we are give a complete binary tree $T$. Each node $v$ of $T$ is labeled with a real number $x_v$. For each node in the tree, we can only determine its value $x_v$ by probing the node $v$.
+In this problem, we are give a complete binary tree $T$. They also state that the number of nodes is $n = 2^d -1$ for some $d$, which means that the tree is not only complete, but is also perfect, which means that all nodes that have childre, have two children, and all leaves are at the same level. This is extremely important, as if the tree was only complete, instead of perfect, we wont have all the leaves at the same level, so we would have to come up with a method to avoid trying to go deeper into the tree when we were reaching the last level, which is not completely filled and all the leaves are as left as possible.
 
-Our goal is to find a local minimum, that is if the label $x_v$ is less than the label $x_w$ for all the nodes $w$ that are joined to $v$ by an edge.  We also have to find this local minimum of $T$using only $O(log n)$ probes to the nodes of T.
+
+Each node $v$ of $T$ is labeled with a real number $x_v$. For each node in the tree, we can only determine its value $x_v$ by probing the node $v$.
+
+Our goal is to find a local minimum, that is if the label $x_v$ is less than the label $x_w$ for all the nodes $w$ that are joined to $v$ by an edge.  We also have to find this local minimum of $T$ using only $O(log n)$ probes to the nodes of $T$.
+
+In our proposal, we will recursively go deeper into the tree until we reach the leave nodes, once we reach the leave nodes, we will compare the one on the left and the one on the right and return the smaller one, while we go up until the tree root node.
+
+To explore the tree, we will use a position array called $pos_{array}$ that we will initialize as $\{0\}$ and when we go deeper in the tree, we will append in each level, a $0$ if we are exploring the left branch and $1$ if we are exploring the right branch. Then when we want to probe a node, we will use this array to reference it. For example, if the tree has $d = 3$ and we want to reference the leftmost leave, we will do $x_{v} = T(\{0,0,0\})$
 
 \subsubsection*{Pseudocode}
 
 \begin{algorithm}[H]
 \caption{Local minimum pseudocode}
 \begin{algorithmic}[1]
+\Function{FindMin}{$T,level,pos_{array}$}
+ \If{We havent reached the leaves of T}
+  \State We go down one level in the tree
+  \State $left_val = \Call{FindMin}{Tree,level+1,pos_{array}.append(0)}$
+  \State $right_val = \Call{FindMin}{Tree,level+1,pos_{array}.append(1)}$
+  \State
+  \State We find the minimum value and return it
+  \If{$left_{val}<right_{val}$}
+   \State \Return $left_{val}$
+  \Else
+   \State \Return $right_{val}$
+  \EndIf
+ \EndIf
+
+ \If{We are on a leaf}
+  \State \Return $x_v$
+ \EndIf
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
-
-\subsubsection*{Implementation}
 
 \subsubsection*{Running time}
 
