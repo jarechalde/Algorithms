@@ -250,11 +250,55 @@ Our goal is to count the number of \textit{significant inversions} between two o
 \begin{algorithm}[H]
 \caption{Significant inversion pseudocode}
 \begin{algorithmic}[1]
+\Function{CountInversions}{array}
+ \If{$length(array)>2$}
+  \State Divide the array in two
+  \State $array_left = array[0:mid]$
+  \State $array_{right} = array[mid:end]$
+  \State Now we recursively divide the array
+  \State $array_{left} = \Call{CountInversions}{array_{left}}$
+  \State $array_{right} = \Call{CountInversions}{array_{right}}$
+  \While{We havent sorted $array_left$ and $array_{right}$}
+   \If{We added all the elements in $array_left$}
+    \State Take one element from $array_{left}$ and another one from $array_right$
+    \State $value_left$ and $value_{right}$
+    \State $array_{sorted} = array_{sorted} + array_{right}$
+   \EndIf
+   \If{We added all the elements in $array_right$}
+    \State $array_{sorted} = array_{sorted} + array_{left}$
+   \EndIf
+   
+   \If{Element in $value_{left}<value_{right}$}
+    \State Add that element to $array_{sorted}$
+   \Else
+    \If{Element in $value_{left}>2*value_{right}$}
+     \State That means that all the elements remaining in the $array_{left}$ are also greater
+     \State thant the element being checked into the right array, so we add as many numbers come
+     \State after the value in the right array to the count of significant inversions.
+    \EndIf
+   \EndIf
+  \EndWhile
+  \State \Return $array_{sorted}$
+ \EndIf
+ \If{$length(array) == 1$}
+  \State \Return array
+ \ElsIf
+  \If{$array[0]<array[1]$}
+   \State \Return $array[0],array[1]$
+  \Else
+   \If{$array[0]>2*array[0]$}
+    \State $N_{inv}++$
+   \EndIf
+   \State \Return $array[1],array[0]$
+  \EndIf
+ \EndIf
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
 \subsubsection*{Running time}
 
+Our algorithm uses mergesort to sort the array and count the number of significant inversions at the same time, so the running time of our algorithm will be $O(n\log n)$
 
 \subsection*{Local minimum}
 

@@ -69,5 +69,4 @@ def countsinv(array,inv):
 
 
 Sort_arr,n_inv = countsinv(S,inv)
-print("Result", Sort_arr)
-print(n_inv)
+print("Number of significant inversions: %i" %n_inv)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  28 FEB 2018 18:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  1 MAR 2018 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,7 +770,248 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 226.
- [6]
+ [6]pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.253 \Function
+               {CountInversions}{array}pdfTeX warning (ext4): destination with 
+the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+
+<to be read again> 
+                   \relax 
+l.254  \If
+          {$length(array)>2$}pdfTeX warning (ext4): destination with the same i
+dentifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.255   \State
+               Divide the array in twopdfTeX warning (ext4): destination with t
+he same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.256   \State
+               $array_left = array[0:mid]$pdfTeX warning (ext4): destination wi
+th the same identifier (name{ALG@line.5}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.257   \State
+               $array_{right} = array[mid:end]$pdfTeX warning (ext4): destinati
+on with the same identifier (name{ALG@line.6}) has been already used, duplicate
+ ignored
+<to be read again> 
+                   \relax 
+l.258   \State
+               Now we recursively divide the arraypdfTeX warning (ext4): destin
+ation with the same identifier (name{ALG@line.7}) has been already used, duplic
+ate ignored
+<to be read again> 
+                   \relax 
+l.259   \State
+               $array_{left} = \Call{CountInversions}{array_{left}}$pdfTeX warn
+ing (ext4): destination with the same identifier (name{ALG@line.8}) has been al
+ready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.260   \State
+               $array_{right} = \Call{CountInversions}{array_{right}}$pdfTeX wa
+rning (ext4): destination with the same identifier (name{ALG@line.9}) has been 
+already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.261   \While
+              {We havent sorted $array_left$ and $array_{right}$}pdfTeX warning
+ (ext4): destination with the same identifier (name{ALG@line.10}) has been alre
+ady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.262    \If
+            {We added all the elements in $array_left$}pdfTeX warning (ext4): d
+estination with the same identifier (name{ALG@line.11}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.263     \State
+                 Take one element from $array_{left}$ and another one from $...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.264     \State
+                 $value_left$ and $value_{right}$pdfTeX warning (ext4): destina
+tion with the same identifier (name{ALG@line.13}) has been already used, duplic
+ate ignored
+<to be read again> 
+                   \relax 
+l.265     \State
+                 $array_{sorted} = array_{sorted} + array_{right}$pdfTeX warnin
+g (ext4): destination with the same identifier (name{ALG@line.14}) has been alr
+eady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.266    \EndIf
+               pdfTeX warning (ext4): destination with the same identifier (nam
+e{ALG@line.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.267    \If
+            {We added all the elements in $array_right$}pdfTeX warning (ext4): 
+destination with the same identifier (name{ALG@line.16}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.268     \State
+                 $array_{sorted} = array_{sorted} + array_{left}$pdfTeX warning
+ (ext4): destination with the same identifier (name{ALG@line.17}) has been alre
+ady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.269    \EndIf
+               pdfTeX warning (ext4): destination with the same identifier (nam
+e{ALG@line.18}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.271    \If
+            {Element in $value_{left}<value_{right}$}pdfTeX warning (ext4): des
+tination with the same identifier (name{ALG@line.19}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.272     \State
+                 Add that element to $array_{sorted}$pdfTeX warning (ext4): des
+tination with the same identifier (name{ALG@line.20}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.273    \Else
+              pdfTeX warning (ext4): destination with the same identifier (name
+{ALG@line.21}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.274     \If
+             {Element in $value_{left}>2*value_{right}$}pdfTeX warning (ext4): 
+destination with the same identifier (name{ALG@line.22}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.275      \State
+                  That means that all the elements remaining in the $array_{...
+
+Underfull \hbox (badness 1314) in paragraph at lines 275--276
+[] \OT1/cmr/m/n/10 That means that all the el-e-ments re-main-ing in the
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.276      \State
+                  thant the element being checked into the right array, so w...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.24})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.277      \State
+                  after the value in the right array to the count of signifi...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.25})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.278     \EndIf
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{ALG@line.26}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.279    \EndIf
+               pdfTeX warning (ext4): destination with the same identifier (nam
+e{ALG@line.27}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.280   \EndWhile
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{ALG@line.28}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.281   \State
+               \Return $array_{sorted}$pdfTeX warning (ext4): destination with 
+the same identifier (name{ALG@line.29}) has been already used, duplicate ignore
+d
+<to be read again> 
+                   \relax 
+l.282  \EndIf
+             pdfTeX warning (ext4): destination with the same identifier (name{
+ALG@line.30}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.283  \If
+          {$length(array) == 1$}pdfTeX warning (ext4): destination with the sam
+e identifier (name{ALG@line.31}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.284   \State
+               \Return arraypdfTeX warning (ext4): destination with the same id
+entifier (name{ALG@line.32}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.285  \ElsIf
+             pdfTeX warning (ext4): destination with the same identifier (name{
+ALG@line.33}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.286   \If
+           {$array[0]<array[1]$}pdfTeX warning (ext4): destination with the sam
+e identifier (name{ALG@line.34}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.287    \State
+                \Return $array[0],array[1]$pdfTeX warning (ext4): destination w
+ith the same identifier (name{ALG@line.35}) has been already used, duplicate ig
+nored
+<to be read again> 
+                   \relax 
+l.288   \Else
+             pdfTeX warning (ext4): destination with the same identifier (name{
+ALG@line.36}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.289    \If
+            {$array[0]>2*array[0]$}pdfTeX warning (ext4): destination with the 
+same identifier (name{ALG@line.37}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.290     \State
+                 $N_{inv}++$pdfTeX warning (ext4): destination with the same id
+entifier (name{ALG@line.38}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.291    \EndIf
+               pdfTeX warning (ext4): destination with the same identifier (nam
+e{ALG@line.39}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.292    \State
+                \Return $array[1],array[0]$pdfTeX warning (ext4): destination w
+ith the same identifier (name{ALG@line.40}) has been already used, duplicate ig
+nored
+<to be read again> 
+                   \relax 
+l.293   \EndIf
+              pdfTeX warning (ext4): destination with the same identifier (name
+{ALG@line.41}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.294  \EndIf
+             pdfTeX warning (ext4): destination with the same identifier (name{
+ALG@line.42}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.295 \EndFunction
+                   [7]
+Overfull \vbox (47.44713pt too high) has occurred while \output is active []
+
+
+[8]
 
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
 
@@ -778,38 +1019,27 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.253 \end{algorithmic}
+l.316 \end{algorithmic}
                        
 ? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.272 \end{algorithmic}
-                       
-? 
-[7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
  (./Javier_Arechalde_Assignment4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
 Package rerunfilecheck Info: File `Javier_Arechalde_Assignment4.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18038 strings out of 493029
- 322067 string characters out of 6136235
- 416708 words of memory out of 5000000
- 21350 multiletter control sequences out of 15000+600000
- 8126 words of font info for 29 fonts, out of 8000000 for 9000
+ 18052 strings out of 493029
+ 322269 string characters out of 6136235
+ 417708 words of memory out of 5000000
+ 21363 multiletter control sequences out of 15000+600000
+ 8728 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,42p,10450b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,42p,10450b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
@@ -822,10 +1052,10 @@ amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Javier_Arechalde_Assignment4.pdf (9 pages, 161288 bytes).
+Output written on Javier_Arechalde_Assignment4.pdf (10 pages, 165480 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 194 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 84 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
