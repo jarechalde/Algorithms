@@ -39,7 +39,7 @@
 
 \subsection*{Solved excercise \#1 in Chapter 5}
 
-In this problem, we have an array with $n$ entries, and inside this array, we have a peak entry $p$ in a position $j$ of the array, so that the values in the array prior to $j$ go in increasing order, and after the peak value, they go in decreasing order.
+In this problem, we are given an array containing $n$ entries. Inside this array, we haev a peak entry $p$ in a position $j$ of the array, so that the array positions prior to $p$ go in increasing order until we reach $p$, and the values after $p$ go in straight decreasing order.
 
 Our goal is to find that peak entry $p$ without having to read the entire array, and only by reading as few values as possible. 
 
@@ -66,43 +66,39 @@ Our goal is to find that peak entry $p$ without having to read the entire array,
 
 \subsubsection*{Solution for problem instance of size $10$}
 
-In this case, we will run our algorithm, when we have an instance of size $10$.
-
-In this problem's scope, we will have an set of increasing numbers that grow until a maximum, followed by another set of numbers that go in decreasing order.
-
-This will be our problem's working set:
+Now we are going to prove that our algorithm works, by manually running it over a sample set of size $10$. This will be our problem's sample set:
 
 $$S = [1,2,4,12,14,21,6,4,3,1]$$
 
-If we start running the algorithm, we will check the number in the $5^{th}$ position.
+When we start running the algorithm, we will first check the number in the $5^{th}$ position.
 
-In this case we will have that $S[4]<S[5]<S[6]$, which means that we are in a positive slope, and we still haven't reached the maximum. Then we will call the function again, so in the next iteration of our algorithm, we will work with this set.
+In this case we will have that $S[4] = 12<S[5] = 14<S[6] = 21$, which means that we are in a positive slope, and we still haven't reached the peak value $p$. Then we will call the function again, so in the next iteration of our algorithm, we will work with the set that is on the right side of the value that we checked.
 
 $$S' = [14,21,6,4,3,1]$$
 
-Now we will check the $3^{rd}$ position. In this case we have that $S[2]>S[3]>S[4]$, which means that we are in a negative slope, so we already passed the maximum. Thus, we will call the function again, and in the next iteration of our algorithm we will work with this set.
+Now we will check the $3^{rd}$ position. In this case we have that $S[2] = 21>S[3] = 6>S[4] = 4$, which means that we are in a negative slope, so we already passed the peak value $p$. Thus, we will call the function again, and in the next iteration of our algorithm we will work with the set at the left of the value we just checked.
 
 $$S'' = [14,21,6]$$
 
-Now we will check the middle position, in this case the $2^{nd}$ position. We get the result that $S[1]<S[2]>S[3]$, which means that the number we are checking is indeed the maximum. Now we will return that value, and stop running our algorithm.
+Now we will check the middle position, in this case the $2^{nd}$ position. We get the result that $S[1] = 14<S[2] = 21>S[3] = 6$, which means that the number we are checking is indeed the peak entry $p$. Now we will return that value, and stop running our algorithm.
 
 $$max = 21$$
 
 \subsubsection*{Time Complexity}
 
-In this problem, with each one of the recursive calls, we reduce the problem to one of at most half the size of the initial problem. Then:
+In this problem, with each one of the recursive calls, we reduce the problem to one of at most half the size of the initial problem. Then,
 
 $$T(n)\leq T(n/2) + c$$
 
 when $n>2$, and
 
-$$T(2)\leq c.$$
+$$T(2)\leq c$$
 
-Then, the running time of our algorithm will be $O(\log n)$.
+Then, we can confirm that the running time of our algorithm will be $O(\log n)$.
 
 \subsection*{Solved exercise \#2 in Chapter 5}
 
-In this problem, we have an investment company that looks at $n$ consecutive days of a given stock. For each of these days, the stock has a price $p(i)$ per share for the stock on that day. We assume that the stock prize was fixed on that day.
+In this problem, we have an investment company that stores during $n$ consecutive days the values of a given stock. For each of these days, the stock has a price $p(i)$ per share for the stock on that day. We assume that the stock prize was fixed on that day.
 
 The goal is to find, without having to check each possible combination of days, which will take $O(n^2)$, in which day they should have bought the shares, and in which day they must have sold them to make as much money as possible.
 
@@ -112,9 +108,9 @@ The goal is to find, without having to check each possible combination of days, 
 \caption{Stocks Divide-and-Conquer pseudocode}
 \begin{algorithmic}[1]
 \Function{Max}{list}
- \State $max$
+ \State $max = list[0]$
  \For{element in list}
-  \If{$element>max \quad \textbf{or} \quad max == NA$}
+  \If{$element>max}
    \State max = element
   \Else{}
    \State \textbf{continue}
@@ -124,9 +120,9 @@ The goal is to find, without having to check each possible combination of days, 
 \EndFunction
 \State
 \Function{Min}{list}
- \State $min$
+ \State $min = list[0]$
  \For{element in list}
-  \If{$element<min \quad \textbf{or} \quad min == NA$}
+  \If{$element<min}
    \State min = element
   \Else{}
    \State \textbf{continue}
@@ -147,7 +143,7 @@ The goal is to find, without having to check each possible combination of days, 
  \State ROpt = RSide[1] - RSide[0]
  \State MOpt = \Call{Max}{RSide} - \Call{Min}{LSide}
  \State
- \State Marray = [min(LSide),max(RSide)]
+ \State Marray = [\Call{Min}{LSide},\Call{Max}{RSide}]
  \State
  \State maxvalue = \Call{Max}{LOpt,ROpt,MOpt}
 
@@ -168,9 +164,7 @@ The goal is to find, without having to check each possible combination of days, 
 
 \subsubsection*{Solution for problem instance of size $10$}
 
-Now we will compute a solution using our algorithm for a problem instance of size 10.
-
-This will be the set we are going to work with.
+Now we are going to prove that our algorithm works, by manually running it over a sample set of size $10$. This will be our problem's sample set:
 
 $$S = [7,4,3,2,5,7,10,20,14,7]$$
 
@@ -183,6 +177,8 @@ $$[7,4] \quad [3,2,5] \quad [7,10] \quad [20,14,7]$$
 $$[7,4] \quad [3,2] \quad [5] \quad [7,10] \quad [20,14] \quad [7]$$
 
 Now we are going to compare set by set, if the optimal solution between one set, compare it with the other set, and compare it also with the maximum of the "right" set and the minimum of the "left" set, and see which one gives us a better solution.
+
+Now we are going to compare the sets, to see which is the best solution, between $S$, $S'$ or $p(j)-p(i)$, over $i \in S$ and $j \in S'$. We will return the best solution in each iteration.
 
 $$[7,4] \quad \& \quad [3,2]$$
 
@@ -232,7 +228,7 @@ The first two items are computed, in time $T(n/2)$ by recursion, and the third i
 
 $$T(n) \leq 2T(\frac{n}{2})+O(n)$$,
 
-Then the time complexity of our implementation will be $O(n\log n)$.
+so the time complexity of our implementation will be $O(n\log n)$.
 
 
 \section*{Part B: Problem Solving}
