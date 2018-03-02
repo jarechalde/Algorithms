@@ -43,6 +43,18 @@ In this problem, we are given an array containing $n$ entries. Inside this array
 
 Our goal is to find that peak entry $p$ without having to read the entire array, and only by reading as few values as possible. 
 
+In our algorithm, we will first check the element in the middle of the given array, and we will check if:
+
+\begin{itemize}
+ \item $array[n/2-1]<array[n/2]<array[n/2]+1$
+ \item $array[n/2-1]>array[n/2]>array[n/2]+1$
+ \item $array[n/2-1]<array[n/2]>array[n/2]+1$
+\end{itemize}
+
+In the first case, we are in a positive slope, which means that we still didn't reach the $p$ value, in this case, we will get rid of the left half of the array and continue. In the second case, we are in a negative slope, which means that we already passed the $p$ value, in this case, we will get rid of the right half of the array and continue. In the last case, the value is greater than the value that goes before it, and greater than the value that goes after it, which means that we hit the $p$ value, in this case, we will stop running our algorithm and return $p$.
+
+We will follow this structure recursively, checking the value in the middle and getting rid of one of the halves of the array until we find the $p$ value.
+
 \subsubsection*{Algorithm Pseudocode}
 
 \begin{algorithm}[H]
@@ -56,7 +68,7 @@ Our goal is to find that peak entry $p$ without having to read the entire array,
  \ElsIf{$array(\frac{n}{2}-1)>array(\frac{n}{2})>array(\frac{n}{2}+1)$}
   \State We have a \textbf{negative slope}, we already passed the maximum
   \State \Call{Findmaximum}{$pos_{start},(pos_{start}+pos_{end})/2$}
- \ElsIf{$array(\frac{n}{2}-1)>array(n/2)<array(\frac{n}{2}+1)$}
+ \ElsIf{$array(\frac{n}{2}-1)<array(n/2)>array(\frac{n}{2}+1)$}
   \State We have found the \textbf{maximum point}
   \State \Return value(n/2)
  \EndIf
@@ -96,11 +108,21 @@ $$T(2)\leq c$$
 
 Then, we can confirm that the running time of our algorithm will be $O(\log n)$.
 
+\pagebreak
+
 \subsection*{Solved exercise \#2 in Chapter 5}
 
 In this problem, we have an investment company that stores during $n$ consecutive days the values of a given stock. For each of these days, the stock has a price $p(i)$ per share for the stock on that day. We assume that the stock prize was fixed on that day.
 
 The goal is to find, without having to check each possible combination of days, which will take $O(n^2)$, in which day they should have bought the shares, and in which day they must have sold them to make as much money as possible.
+
+In our algorithm, we will recursively divide our problem while our array is longer than 2, until we are left with two sets of $S$ and $S'$. Then we will substract the first value to the second value of the array, this way we calculate the potential benefit that could be earned if buying in the first day and selling on the second. We will also calculate the optimal solution of substracting the minimum value on $S$ to the maximum value of $S'$. In the end we will compare the three options, to see which one yields more benefit, and return that option.
+
+\begin{itemize}
+ \item The optimal solution on $S$
+ \item The optimal solution on $S'$
+ \item the optimal solution of $p(j)-p(i)$, over $i \in S$ and $j \in S'$.
+\end{itemize}
 
 \subsubsection*{Algorithm Pseudocode}
 
@@ -110,7 +132,7 @@ The goal is to find, without having to check each possible combination of days, 
 \Function{Max}{list}
  \State $max = list[0]$
  \For{element in list}
-  \If{$element>max}
+  \If{$element>max$}
    \State max = element
   \Else{}
    \State \textbf{continue}
@@ -118,11 +140,10 @@ The goal is to find, without having to check each possible combination of days, 
  \EndFor
  \State \Return max
 \EndFunction
-\State
 \Function{Min}{list}
  \State $min = list[0]$
  \For{element in list}
-  \If{$element<min}
+  \If{$element<min$}
    \State min = element
   \Else{}
    \State \textbf{continue}
@@ -130,21 +151,15 @@ The goal is to find, without having to check each possible combination of days, 
  \EndFor
  \State \Return min
 \EndFunction
-\State
 \Function{FindOpt}{$array$}
 \If{$len(array)>2$}
- \State $Larray = array[0:len(array)/2]$
- \State $Rarray = array[len(array)/2:len(array)]$
- \State
+ \State We divide the array in two halves $Larray$ and $Rarray$
  \State LSide = \Call{FindOpt}{$Larray$}
  \State RSide = \Call{FindOpt}{$Rarray$}
- \State
  \State LOpt = LSide[1] - LSide[0]
  \State ROpt = RSide[1] - RSide[0]
  \State MOpt = \Call{Max}{RSide} - \Call{Min}{LSide}
- \State
  \State Marray = [\Call{Min}{LSide},\Call{Max}{RSide}]
- \State
  \State maxvalue = \Call{Max}{LOpt,ROpt,MOpt}
 
  \If {$maxvalue == LOpt$}
@@ -154,7 +169,6 @@ The goal is to find, without having to check each possible combination of days, 
  \ElsIf{$maxvalue == MOpt$}
   \State \Return Marray
  \EndIf
- \State
 \ElsIf{$len(array) <= 2$}
  \State \Return array
 \EndIf
@@ -241,7 +255,11 @@ In this problem, we are given a sequence of $n$ numbers $a_1,...,a_n$, which we 
 
 Our goal is to count the number of \textit{significant inversions} between two orderings, using an algorithm that has $O(n \log n)$ time complexity.
 
+Our implementation will be based on the \textit{merge-sort} algorithm, as we will recursively sort and merge the array, but we will also count the number of significant inversions while at it.
+
 We also added some improvements to the pseudocode. If for example, while we are merging the two sorted arrays, we finish adding elements from one array while there are still elements available in the other array, we will add this remaining elements and exit the while loop.
+
+Another important thing to note is that when we are merging two arrays and checking if there exists a significant inversion, if there is indeed one, there will be as many significant inversions as elements are left in the array on the "left", as the array is sorted in increasing order, then the rest of the values that come after that one will also be greater than the value we are comparing with.
 
 \subsubsection*{Pseudocode}
 
@@ -264,10 +282,10 @@ We also added some improvements to the pseudocode. If for example, while we are 
     \State Break loop
    \EndIf
    \If{$value_{left}<value_{right}$}
-    \State Add $value_{left}$ to the end of$array_{sorted}$
+    \State Add $value_{left}$ to the end of $array_{sorted}$
     \State i++
    \Else
-    \State Add $value_{right}$ to the end of$array_{sorted}$
+    \State Add $value_{right}$ to the end of $array_{sorted}$
     \State j++
     \If{$value_{left}>2*value_{right}$}
      \State All the elements from position $i$ to the end will be greater
@@ -315,9 +333,9 @@ Each node $v$ of $T$ is labeled with a real number $x_v$. For each node in the t
 
 Our goal is to find a local minimum, that is if the label $x_v$ is less than the label $x_w$ for all the nodes $w$ that are joined to $v$ by an edge.  We also have to find this local minimum of $T$ using only $O(log n)$ probes to the nodes of $T$.
 
-In our proposal, we will recursively go deeper into the tree until we reach the leave nodes, once we reach the leave nodes, we will compare the one on the left and the one on the right and return the smaller one, while we go up until the tree root node.
+In our proposal, we will recursively go deeper into the tree until we reach the leave nodes, once we reach the leave nodes, we will compare the one on the left and the one on the right and return the smaller one, while we go up until the tree root node. This can be seen as a "tournament", as only the smaller value will remain after every round, and in the end we will have the smallest value in the tree.
 
-To explore the tree, we will use a position array called $pos_{array}$ that we will initialize as $\{0\}$ and when we go deeper in the tree, we will append in each level, a $0$ if we are exploring the left branch and $1$ if we are exploring the right branch. Then when we want to probe a node, we will use this array to reference it. For example, if the tree has $d = 3$ and we want to reference the leftmost leave, we will do $x_{v} = T(\{0,0,0\})$
+To explore the tree, we will use a position array called $pos_{array}$ that we will initialize as $\{0\}$ and when we go deeper in the tree, we will append in each level, a $0$ if we are exploring the left branch and $1$ if we are exploring the right branch. Then when we want to probe a node, we will use this array to reference it. For example, if the tree has $d = 3$ and we want to reference the leftmost leaf, we will do $x_{v} = T(\{0,0,0\})$
 
 \subsubsection*{Pseudocode}
 
@@ -325,10 +343,10 @@ To explore the tree, we will use a position array called $pos_{array}$ that we w
 \caption{Local minimum pseudocode}
 \begin{algorithmic}[1]
 \Function{FindMin}{$T,level,pos_{array}$}
- \If{We havent reached the leaves of T}
+ \If{We haven't reached the leaves of T}
   \State We go down one level in the tree
-  \State $left_val = \Call{FindMin}{Tree,level+1,pos_{array}.append(0)}$
-  \State $right_val = \Call{FindMin}{Tree,level+1,pos_{array}.append(1)}$
+  \State $left_{val} = \Call{FindMin}{T,level+1,pos_{array}.append(0)}$
+  \State $right_{val} = \Call{FindMin}{T,level+1,pos_{array}.append(1)}$
   \State
   \State We find the minimum value and return it
   \If{$left_{val}<right_{val}$}
@@ -339,7 +357,7 @@ To explore the tree, we will use a position array called $pos_{array}$ that we w
  \EndIf
 
  \If{We are on a leaf}
-  \State \Return $x_v$
+  \State \Return $x_v = T(pos_{array})$
  \EndIf
 \EndFunction
 \end{algorithmic}
@@ -347,4 +365,13 @@ To explore the tree, we will use a position array called $pos_{array}$ that we w
 
 \subsubsection*{Running time}
 
+In this problem, with each one of the recursive calls, we reduce the problem to one of at most half the size of the initial problem. Then,
+
+$$T(n)\leq T(n/2) + c$$
+
+when $n>2$, and
+
+$$T(2)\leq c$$
+
+Then, we can confirm that the running time of our algorithm will be $O(\log n)$.
 \end{document}
