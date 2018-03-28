@@ -39,9 +39,37 @@
 
 \subsection*{Solved excercise \#1 in Chapter 6}
 
+In this problem, we want to place billboards in a highway to get maximum revenue. The highway will be $M$ miles long, and will have $n$ locations on which we can locate the different billboards, each one of this locations will give us $r_i>0$ revenue. There is also a regulation that doesn't allow two billboards to be placed closer than 5 miles away from each other.
+
+The goal of this problem is to find the billboard placements that will give us the maximum revenue, while following all the given regulations.
+
 \subsubsection*{Algorithm Pseudocode}
 
+\begin{algorithm}[H]
+\caption{Implementation}
+\begin{algorithmic}[1]
+\State Initiallize $M[0] = 0$ and $M[1] = r_1$
+\For{$j = 2,3,...,n$}
+ \If{$x_j-x_{j-1} \geq 5$}
+  \State $M[j] = M[j-1] + r_j$
+ \Else { Find the closest possible value ($x_j-x_i \geq 5$)}
+  \If{$M[i]+r_{j}>M[j-1]$}
+   \State $M[j] = M[i] + r_j$
+  \Else
+   \State $M[j] = M[j-1]$
+  \EndIf
+ \EndIf
+\EndFor
+\State
+\State \Return M[n]
+\end{algorithmic}
+\end{algorithm}
+
 \subsubsection*{Solution for problem instance of size $10$}
+
+The code for a problem instance of size 10 is as follows. Run it to see the results.
+
+\lstinputlisting[language = Python]{Highway.py}
 
 \subsubsection*{Time Complexity}
 
@@ -69,6 +97,7 @@ Here is the code for the implementation of the \textit{pseudocode} shown below.
 \lstinputlisting[language=Python]{}
 
 \subsubsection*{Running time}
+As we have to run over all the values in the set, to find the optimal combination of billboard locations, the running time of our implementation will be $O(n)$.
 
 %Chapter 6, Exercise 11
 
