@@ -80,7 +80,17 @@ The code for a problem instance of size 10 is as follows. Run it to see the resu
 
 \subsection*{Consulting Jobs}
 
+We are in a company that does consulting jobs. Each week we have two different jobs to choose from, one thats a low stress job and another one thats a high stress job. Each one of this jobs will give us a different revenue $l_i$ for the low stress job and $h_i$ for the high stress job. The requirement for choosing a high stress job is that the previous week the team should have been resting, then doing no job at all. 
+
+The goal is to find the combination of jobs that gives us the maximum revenue, taking into account that if we want to choose a high stress job, the condition stated before has to be met.
+
 \subsubsection*{Problem Model}
+
+We will solve this problem using dynamic programming. In each iteration we will have to choose between doing the high stress job, doing the low stress job, or resting so the next day we can do the high stress job.
+
+We will have a list of low stress jobs, and it's respective revenue for each of them $l = [l_1 = rl_1,l_2 = rl_2,...,l_n = rl_n]$ and a list of the high stress jobs $h = [h_1 = rh_1, h_2 = rh_2,...,h_n = rh_n]$ with these jobs, and the revenue expected for each of them.
+
+We will return a list containing the planning, and the expected revenue from this planning.
 
 \subsubsection*{Pseudocode}
 
