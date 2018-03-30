@@ -46,7 +46,7 @@ The goal of this problem is to find the billboard placements that will give us t
 \subsubsection*{Algorithm Pseudocode}
 
 \begin{algorithm}[H]
-\caption{Implementation}
+\caption{Billboards Pseudocode}
 \begin{algorithmic}[1]
 \State Initiallize $M[0] = 0$ and $M[1] = r_1$
 \For{$j = 2,3,...,n$}
@@ -95,7 +95,7 @@ We will return a list containing the planning, and the expected revenue from thi
 \subsubsection*{Pseudocode}
 
 \begin{algorithm}[H]
-\caption{Implementation}
+\caption{Consulting Jobs Pseudocode}
 \begin{algorithmic}[1]
 \For{iteration $i = 1$ to $n$}
  \If{$h_{i+1}>l_i+l_{i+1}$}
@@ -124,16 +124,48 @@ The running time of our algorithm will be $O(n)$, as we have to go over all the 
 
 \subsection*{Carrier Selection}
 
+We are a consulting company that manufactures PC equipment and ships it all over the country. We have a projected supply $s_i$ for the next weeks, which is measured in pounds. Each week's suppy can be carried by two different companies.
+
+\begin{itemize}
+ \item Company A: Charges per pound $r$
+ \item Company B: Charges a fixed amount $c$ per week
+\end{itemize}
+
+The only restriction in this problem is that if we select company B, it must be chosen in four continuous weeks at a time.
+
+Our goal is to find the combination of carriers that results in the minimum shipping cost.
+
 \subsubsection*{Problem Model}
+
+In this problem, we will have an array $s$ containing the projected supply for the next $n$ weeks, we will also have $r$ which is the amount that company A charges per pound of the produced PC equipment, and $c$ that is the fixed amount company B charges per week for delivering the equipment.
+
+At the beginning of our algorithm, we will start by only choosing company A, until we reach week 4, once we reach week 4, we will start checking  what is more expensive, if choosing company A for the past 3 weeks and that week, or choosing the flat rate of company B. In case using company B is the better choice, we will update the best cost for that week with the best cost four weeks ago plus the flat rate multiplied by the four weeks. Otherwise we will add the cost per pound multiplied for the projected supply for that week to the previous week best cost.
+
+In the end, we will have an array containing the best cost possible for each of the weeks.
 
 \subsubsection*{Pseudocode}
 
 \begin{algorithm}[H]
-\caption{Implementation}
+\caption{Carrier Selection Pseudocode}
 \begin{algorithmic}[1]
+\State We set $Cost_0 = 0$
+\For{$i$ in range $0 \to n$}
+ \If{$i<3$}
+  \State $Cost_i = Cost_{i-1}+s_i*r$
+ \Else
+  \If{$Cost_{i-1}+s_i*r>4*c$}
+   \State $Cost_i = Cost_{i-4}+4*c$
+  \Else
+   \State $Cost_i = Cost_{i-1}+s_i*r$
+  \EndIf
+ \EndIf
+\EndFor
+\State \Return Best cost possible $Cost_n$
 \end{algorithmic}
 \end{algorithm}
 
 \subsubsection*{Running time}
+
+The running time of our implementation will be $O(n)$, as we have to go through the $n$ weeks to find the lowest cost possible to deliver our product supply.
 
 \end{document}
