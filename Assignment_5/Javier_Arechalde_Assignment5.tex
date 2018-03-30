@@ -26,7 +26,7 @@
 
 \begin{titlepage}
 	\centering
-	{\scshape\LARGE Assignment 4\par}
+	{\scshape\LARGE Assignment 5\par}
 	\vspace{1cm}
 	{\scshape\Large Algorithms \& Complexity (CIS 522-01)\par}
 	\vspace{1.5cm}
@@ -79,7 +79,7 @@ As we have to run over all the values in the set, to find the optimal combinatio
 
 \subsection*{Consulting Jobs}
 
-We are in a company that does consulting jobs. Each week we have two different jobs to choose from, one thats a low stress job and another one thats a high stress job. Each one of this jobs will give us a different revenue $l_i$ for the low stress job and $h_i$ for the high stress job. The requirement for choosing a high stress job is that the previous week the team should have been resting, then doing no job at all. 
+We are in a company that does consulting jobs. Each week we have two different jobs to choose from, one that is a low stress job and another one that is a high stress job. Each one of this jobs will give us a different revenue, $l_i$ for the low stress job and $h_i$ for the high stress job. The requirement for choosing a high stress job is that the previous week the team should have been resting, doing no job at all. 
 
 The goal is to find the combination of jobs that gives us the maximum revenue, taking into account that if we want to choose a high stress job, the condition stated before has to be met.
 
@@ -91,7 +91,7 @@ We will have a list of low stress jobs, and it's respective revenue for each of 
 
 We will first initialize the maximum revenue for week 0 to 0. We suppose that the team is rested on the first week, then the maximum revenue on week 1 will be the greater between the low stress job and the high stress job.
 
-Then we will iterate through all weeks, if the revenue that we will get from resting the week before and doing the high stress is greater than doing that week's and the week before low stress job, then we will rest on the week before, and therefore add to the maximum revenue two weeks before the revenue we will get from doing the high stress job. Otherwise, we won't rest the week before, so we will add the low stress job value on that week to the previous weeks' maximum revenue.
+Then we will iterate through all weeks, if the revenue that we will get from resting the week before and doing the high stress is greater than doing that week's and the week before low stress job, then we will rest on the week before, and therefore add to the maximum revenue that we obtained two weeks before the revenue we will get from doing the high stress job. Otherwise, we won't rest the week before, so we will add the low stress job value on that week to the previous weeks' maximum revenue.
 
 We will return a list containing the maximum possible revenue for each of the weeks.
 
@@ -135,7 +135,7 @@ We are a consulting company that manufactures PC equipment and ships it all over
  \item Company B: Charges a fixed amount $c$ per week
 \end{itemize}
 
-The only restriction in this problem is that if we select company B, it must be chosen in four continuous weeks at a time.
+The only restriction in this problem is that if we select company B, it must be chosen in four contiguous weeks at a time.
 
 Our goal is to find the combination of carriers that results in the minimum shipping cost.
 

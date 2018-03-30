@@ -7,7 +7,7 @@ r = 1
 #Fixed rate per week for company B
 c = 10
 
-#Array of best possible cost
+#Initializing the best possible cost array
 sch = [0]*(len(s)+1)
 sch[0] = 0
 

@@ -9,7 +9,7 @@ length = len(l)
 #Initializing the revenue to 0
 rev = [0]*(length+1)
 
-#Initializing some values
+#Initializing the revenue value for 0 and 1
 rev[0] = 0
 rev[1] = max(l[0],h[0])
 
