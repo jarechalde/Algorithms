@@ -60,7 +60,6 @@ The goal of this problem is to find the billboard placements that will give us t
   \EndIf
  \EndIf
 \EndFor
-\State
 \State \Return M[n]
 \end{algorithmic}
 \end{algorithm}
@@ -90,23 +89,28 @@ We will solve this problem using dynamic programming. In each iteration we will 
 
 We will have a list of low stress jobs, and it's respective revenue for each of them $l = [l_1 = rl_1,l_2 = rl_2,...,l_n = rl_n]$ and a list of the high stress jobs $h = [h_1 = rh_1, h_2 = rh_2,...,h_n = rh_n]$ with these jobs, and the revenue expected for each of them.
 
-We will return a list containing the planning, and the expected revenue from this planning.
+We will first initialize the maximum revenue for week 0 to 0. We suppose that the team is rested on the first week, then the maximum revenue on week 1 will be the greater between the low stress job and the high stress job.
+
+Then we will iterate through all weeks, if the revenue that we will get from resting the week before and doing the high stress is greater than doing that week's and the week before low stress job, then we will rest on the week before, and therefore add to the maximum revenue two weeks before the revenue we will get from doing the high stress job. Otherwise, we won't rest the week before, so we will add the low stress job value on that week to the previous weeks' maximum revenue.
+
+We will return a list containing the maximum possible revenue for each of the weeks.
 
 \subsubsection*{Pseudocode}
 
 \begin{algorithm}[H]
 \caption{Consulting Jobs Pseudocode}
 \begin{algorithmic}[1]
-\For{iteration $i = 1$ to $n$}
- \If{$h_{i+1}>l_i+l_{i+1}$}
-  \State We choose to rest in week $i$
-  \State We choose the high stress job on week $i+1$
-  \State Continue on iteration $i+2$
+\State We initiallize $Revenue_0 = 0$
+\State We initialize $Revenue_1 = max(l_1,h_1)$
+\For{iteration $i = 2 \to n$}
+ \If{$h_{i}>l_i+l_{i-1}$}
+  \State We decide to rest the week before, then
+  \State $Revenue_i = Revenue_{i-2}+h_i$
  \Else
-  \State We choose low-stress job
-  \State We continue on iteraton $i+1$
+  \State $Revenue_i = Revenue_{i-1}+l_i$
  \EndIf
 \EndFor
+\State \Return Best possible revenue $Revenue_n$
 \end{algorithmic}
 \end{algorithm}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  30 MAR 2018 11:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  30 MAR 2018 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -718,146 +718,151 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 .1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 \For
-          {iteration $i = 1$ to $n$}pdfTeX warning (ext4): destination with the
- same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+l.103 \State
+             We initiallize $Revenue_0 = 0$pdfTeX warning (ext4): destination w
+ith the same identifier (name{ALG@line.2}) has been already used, duplicate ign
+ored
 <to be read again> 
                    \relax 
-l.101  \If
-          {$h_{i+1}>l_i+l_{i+1}$}pdfTeX warning (ext4): destination with the sa
-me identifier (name{ALG@line.3}) has been already used, duplicate ignored
+l.104 \State
+             We initialize $Revenue_1 = max(l_1,h_1)$pdfTeX warning (ext4): des
+tination with the same identifier (name{ALG@line.3}) has been already used, dup
+licate ignored
 <to be read again> 
                    \relax 
-l.102   \State
-               We choose to rest in week $i$pdfTeX warning (ext4): destination 
-with the same identifier (name{ALG@line.4}) has been already used, duplicate ig
-nored
+l.105 \For
+          {iteration $i = 2 \to n$}pdfTeX warning (ext4): destination with the 
+same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103   \State
-               We choose the high stress job on week $i+1$pdfTeX warning (ext4)
-: destination with the same identifier (name{ALG@line.5}) has been already used
-, duplicate ignored
-<to be read again> 
-                   \relax 
-l.104   \State
-               Continue on iteration $i+2$pdfTeX warning (ext4): destination wi
-th the same identifier (name{ALG@line.6}) has been already used, duplicate igno
-red
-<to be read again> 
-                   \relax 
-l.105  \Else
-            pdfTeX warning (ext4): destination with the same identifier (name{A
-LG@line.7}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.106   \State
-               We choose low-stress jobpdfTeX warning (ext4): destination with 
-the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
-
+l.106  \If
+          {$h_{i}>l_i+l_{i-1}$}pdfTeX warning (ext4): destination with the same
+ identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.107   \State
-               We continue on iteraton $i+1$pdfTeX warning (ext4): destination 
-with the same identifier (name{ALG@line.9}) has been already used, duplicate ig
-nored
+               We decide to rest the week before, thenpdfTeX warning (ext4): de
+stination with the same identifier (name{ALG@line.6}) has been already used, du
+plicate ignored
 <to be read again> 
                    \relax 
-l.108  \EndIf
+l.108   \State
+               $Revenue_i = Revenue_{i-2}+h_i$pdfTeX warning (ext4): destinatio
+n with the same identifier (name{ALG@line.7}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.109  \Else
+            pdfTeX warning (ext4): destination with the same identifier (name{A
+LG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.110   \State
+               $Revenue_i = Revenue_{i-1}+l_i$pdfTeX warning (ext4): destinatio
+n with the same identifier (name{ALG@line.9}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.111  \EndIf
              pdfTeX warning (ext4): destination with the same identifier (name{
 ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.109 \EndFor
-              [3] (./Consulting.py [4]) [5]pdfTeX warning (ext4): destination w
-ith the same identifier (name{ALG@line.1}) has been already used, duplicate ign
-ored
+l.112 \EndFor
+             pdfTeX warning (ext4): destination with the same identifier (name{
+ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.151 \State
+l.113 \State
+             \Return Best possible revenue $Revenue_n$ [3] (./Consulting.py)
+[4]pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.155 \State
              We set $Cost_0 = 0$pdfTeX warning (ext4): destination with the sam
 e identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.152 \For
+l.156 \For
           {$i$ in range $0 \to n$}pdfTeX warning (ext4): destination with the s
 ame identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153  \If
+l.157  \If
           {$i<3$}pdfTeX warning (ext4): destination with the same identifier (n
 ame{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.154   \State
+l.158   \State
                $Cost_i = Cost_{i-1}+s_i*r$pdfTeX warning (ext4): destination wi
 th the same identifier (name{ALG@line.5}) has been already used, duplicate igno
 red
 <to be read again> 
                    \relax 
-l.155  \Else
+l.159  \Else
             pdfTeX warning (ext4): destination with the same identifier (name{A
 LG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.156   \If
+l.160   \If
            {$Cost_{i-1}+s_i*r>4*c$}pdfTeX warning (ext4): destination with the 
 same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.157    \State
+l.161    \State
                 $Cost_i = Cost_{i-4}+4*c$pdfTeX warning (ext4): destination wit
 h the same identifier (name{ALG@line.8}) has been already used, duplicate ignor
 ed
 <to be read again> 
                    \relax 
-l.158   \Else
+l.162   \Else
              pdfTeX warning (ext4): destination with the same identifier (name{
 ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.159    \State
+l.163    \State
                 $Cost_i = Cost_{i-1}+s_i*r$pdfTeX warning (ext4): destination w
 ith the same identifier (name{ALG@line.10}) has been already used, duplicate ig
 nored
 <to be read again> 
                    \relax 
-l.160   \EndIf
+l.164   \EndIf
               pdfTeX warning (ext4): destination with the same identifier (name
 {ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.161  \EndIf
+l.165  \EndIf
              pdfTeX warning (ext4): destination with the same identifier (name{
 ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.162 \EndFor
+l.166 \EndFor
              pdfTeX warning (ext4): destination with the same identifier (name{
 ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.163 \State
-             \Return Best cost possible $Cost_n$
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
+l.167 \State
+             \Return Best cost possible $Cost_n$ [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
  [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
 
 (./Javier_Arechalde_Assignment5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
 Package rerunfilecheck Info: File `Javier_Arechalde_Assignment5.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18299 strings out of 493029
- 325437 string characters out of 6136235
+ 18270 strings out of 493029
+ 325013 string characters out of 6136235
  433708 words of memory out of 5000000
- 21548 multiletter control sequences out of 15000+600000
+ 21546 multiletter control sequences out of 15000+600000
  7507 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,43p,10450b,1842s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,43p,10450b,1844s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
@@ -870,10 +875,10 @@ amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Javier_Arechalde_Assignment5.pdf (7 pages, 166611 bytes).
+Output written on Javier_Arechalde_Assignment5.pdf (7 pages, 165280 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 221 compressed objects within 3 object streams
- 134 named destinations out of 1000 (max. 500000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
+ 107 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
