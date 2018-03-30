@@ -72,7 +72,7 @@ The code for a problem instance of size 10 is as follows. Run it to see the resu
 \lstinputlisting[language = Python]{Highway.py}
 
 \subsubsection*{Time Complexity}
-
+As we have to run over all the values in the set, to find the optimal combination of billboard locations, the running time of our implementation will be $O(n)$.
 
 \section*{Part B: Problem Solving}
 
@@ -97,6 +97,16 @@ We will return a list containing the planning, and the expected revenue from thi
 \begin{algorithm}[H]
 \caption{Implementation}
 \begin{algorithmic}[1]
+\For{iteration $i = 1$ to $n$}
+ \If{$h_{i+1}>l_i+l_{i+1}$}
+  \State We choose to rest in week $i$
+  \State We choose the high stress job on week $i+1$
+  \State Continue on iteration $i+2$
+ \Else
+  \State We choose low-stress job
+  \State We continue on iteraton $i+1$
+ \EndIf
+\EndFor
 \end{algorithmic}
 \end{algorithm}
 
@@ -104,10 +114,11 @@ We will return a list containing the planning, and the expected revenue from thi
 
 Here is the code for the implementation of the \textit{pseudocode} shown below.
 
-\lstinputlisting[language=Python]{}
+\lstinputlisting[language=Python]{Consulting.py}
 
 \subsubsection*{Running time}
-As we have to run over all the values in the set, to find the optimal combination of billboard locations, the running time of our implementation will be $O(n)$.
+
+The running time of our algorithm will be $O(n)$, as we have to go over all the $n$ weeks to choose the best possible combination of jobs.
 
 %Chapter 6, Exercise 11
 
