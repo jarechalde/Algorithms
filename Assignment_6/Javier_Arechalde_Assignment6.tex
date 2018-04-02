@@ -14,7 +14,7 @@
 
 \hypersetup{citecolor=DeepPink4}
 \hypersetup{linkcolor=DarkRed}
-\hypersetup{urlcolor=Blue}
+\hypersetup{urlcolor=blue}
 
 \usepackage{cleveref}
 
@@ -35,13 +35,35 @@
 	{\large \today\par}
 \end{titlepage}
 
-\section*{1. Ford-Furkerson Algorithm}
+\section*{1. Ford-Fulkerson Algorithm}
+
+\subsection*{a. Implementation}
+
+We used the Ford-Fulkerson implementation found \href{https://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/}{here}.
+
+This implementation models the graph as an Adjacency Matrix, and then runs Ford-Fulkerson algorithm over this graph, using Breadth First Search (BFS) to find the augmenting path in the graph.
 
 \begin{algorithm}[H]
 \caption{Ford-Fulkerson Pseudocode}
 \begin{algorithmic}[1]
+\Function{Ford-Fulkerson}{}
+ \State We initally set the flow to 0 for all the edges in the graph
+ \While{There is a path in the residual graph}
+  \State We find the minimum residual capacity of the edges along the path
+  \State Increment the flow by that minimum residual capacity $path_{flow}$
+  \State $max_{flow} = max_{flow} + path_{flow}$
+  \State We update the residual graph too
+ \EndWhile
+ \State \Return Maximum flow $\rightarrow max_{flow}$
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
+
+\subsection*{b. Time Complexity}
+
+\subsection*{c. Results}
+
+The maximum possible flow found is 36.
 
 \section*{2. Project Selection Problem}
 
