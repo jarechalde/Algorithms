@@ -67,8 +67,120 @@ The maximum possible flow found is 36.
 
 \section*{2. Project Selection Problem}
 
+We will solve this problem by reducing it to a minimum-cut computation problem on an extended graph $G'$. We will add a new source $s$ and a new sink $t$ to the graph. For each node with capacity less than 0  we will add an edge from the node to sink with the capacity of the node. For each node with capacity greater than 0, we will add an edge that goes from source to that node, with the capacity of that node.
+
+From this we can see that the maximum capacity of the cut that separates the source from everything else will be the sum of all the capacities from the nodes with capacity greater than 0.
+
+For the rest of the edges in $G'$ we will set the capacity to infinity, that means that there is no upper bound in these edges.
+
 \section*{3. Doctor Holiday Assignment}
 
+\subsection*{a.}
+
+In this probel, we are setting the holyday assignment for doctors in a hospital. They need to have at least one doctor covering each vacation day.
+
+We will have $k$ vacation periods, each one of them having several contiguous days. $D_j$ is the set of days included in the $j$ vacation period. The union of this days $U_j D_j$ will be the set of vacation days.
+
+We have also $n$ doctors at the hospital, each one of them $i$ having a set of vacation days $S_i$ when he or she is available to work.
+
+We will model this as a network flow problem.
+
+We will have a node representing each doctor, attached to other nodes, representing each day when he or she can work, this edge having a capacity of one. We will also attach a super-source $s$ to each doctor node by an edge. And we attach all the holiday days to a supersink.
+
+We had an extra requirement, and that is that each doctor can work at most one day for every vacation period. To fulfill this requirement, we will add an intermidiate node for each holyday period to all the doctors, having edges that go from that node to the days each doctor is available to work during that vacation period.
+
+\subsection*{b.}
+
+We will have four doctors: Javier, Sarah, Maria, and Jaime.
+
+We will have three vacation periods: Christmas, Spring Break, and Thanksgiving.
+
+Christmas break consists in 4 days. [1,2,3,4]
+Spring break consists in 3 days. [1,2,3]
+Thanksgiving break consists in 3 days. [1,2,3]
+
+Javier can work these days for each of the vacation periods:
+
+$Christmas_{Javier} = [1,2]$
+$Christmas_{Javier} = [1,2]$
+$Christmas_{Javier} = [1,2]$
+
+Sarah can work these days for each of the vacation periods:
+
+$Christmas_{Sarah} = [2,3]$
+$Christmas_{Sarah} = [1,2]$
+$Christmas_{Sarah} = [1,2]$
+
+Maria can work these days for each of the vacation periods:
+
+$Christmas_{Maria} = [2,4]$
+$Christmas_{Maria} = [1,3]$
+$Christmas_{Maria} = [1,3]$
+
+Jaime can work these days for each of the vacation periods:
+
+$Christmas_{Jaime} = [1,4]$
+$Christmas_{Jaime} = [2,3]$
+$Christmas_{Jaime} = [2,3]$
+
+
+\subsection*{c.}
+
 \section*{4. Advertisement Problem}
+
+\subsection*{a.}
+
+In ths problem, we are working for a website that gathers data from users. This website has data from $k$ different  demographic groups $G_1,G_2,...,G_k$. These groups can overlap, some user can belong in example to $G_1$ and $G_2$ at the same time.
+
+This website has contracts with $m$ different advertisers. And here is what a contract with one of this advertisers looks like:
+
+\begin{itemize}
+ \item For a subset $X_i \subseteq \{G_1,...,G_k\}$ the advertiser $i$ wants to show ads to users that belong to at least one of the demographic groups in the set $X_i$.
+ \item For some number $r_i$ advertiser $i$ wants to show ads to at least $r_i$ users each minute.
+\end{itemize} 
+
+At some moment, we have $n$ users visiting the website, each of these users $j$ belonging to a subset $U_j \subseteq \{G_1,...,G_k\}$ of the demographic groups. We want to show a single ad to each users so the contrat is satisfied. That is for each advertiser $i = 1,...,m$ show his ad to at least $r_i$ of the $n$ users, each one of them belonging to at least one demographic group in $X_i$.
+
+\subsection*{b.}
+
+Demographic groups $\(k = 4\)$:
+
+\begin{itemize}
+ \item Kids
+ \item Teens
+ \item Adults
+ \item Seniors
+\end{itemize}
+
+Advertisers $\(m = 5\)$:
+
+\begin{itemize}
+ \item Netflix $\rightarrow X_1 = \{Teens,Adults\}, r_1 = 2$
+ \item Walmart $\rightarrow X_2 = \{Adults,Seniors\}, r_2 = 4$
+ \item Xbox $\rightarrow X_3 = \{Kids,Teens\} r_3 = 4$
+ \item Zara $\rightarrow X_4 = \{Teens,Adults\} r_4 = 5$
+\end{itemize}
+
+Users $\(n = 15\)$:
+
+\begin{itemize}
+ \item $U_1 = \{Teens\}$
+ \item $U_2 = \{Kids\}$
+ \item $U_3 = \{Adults,Seniors\}$
+ \item $U_4 = \{Teens,Adults\}$
+ \item $U_5 = \{Kids,Teens\}$
+ \item $U_6 = \{Kids\}$
+ \item $U_7 = \{Teens\}$
+ \item $U_8 = \{Seniors\}$
+ \item $U_9 = \{Teens,Adults\}$
+ \item $U_10 = \{Adults,Seniors\}$
+ \item $U_11 = \{Kids\}$
+ \item $U_12 = \{Adults\}$
+ \item $U_13 = \{Adults\}$
+ \item $U_14 = \{Kids,Teens\}$
+ \item $U_15 = \{Seniors\}$
+\end{itemize}
+
+\subsection*{c.}
 
 \end{document}
