@@ -1,5 +1,5 @@
 # Python program for implementation of Ford Fulkerson algorithm
-  
+import sys  
 from collections import defaultdict
   
 #This class represents a directed graph using adjacency matrix representation
@@ -76,24 +76,31 @@ class Graph:
                 self.graph[u][v] -= path_flow
                 self.graph[v][u] += path_flow
                 v = parent[v]
- 
+
+	#Printing results
+	print("FLOW:")
+ 	for i in range(0,len(graph)):
+         for j in range(0,len(graph)):
+	  sys.stdout.write('%f ' %graph[j][i])
+	 print('\n')
+
         return max_flow
- 
-  
+
+
 # Create a graph given in the above diagram
 inf1 = float('inf')
-graph = [[0,0,15,0,10,20,0], #S
-	 [0,0,inf1,inf1,0,0,10], #P1
-	 [0,0,0,inf1,inf1,0,0], #P2
-	 [0,0,0,0,0,inf1,5], #P3
-	 [0,0,0,0,0,0,0], #P4
-	 [0,0,0,0,0,0,0], #P5
-	 [0,0,0,0,0,0,0]] #T
+graph = [[0, 0, 15, 0, 10, 20, 0],
+        [0, 0, 0, 0, 0, 0, 10],
+        [0, inf1, 0, 0, 0, 0, 0],
+	[0, inf1, inf1, 0, 0, 0, 5],
+	[0, 0, inf1, 0, 0, 0, 0],
+	[0, 0, 0, inf1, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0]]
  
 g = Graph(graph)
  
 source = 0; sink = 6
   
-print ("The maximum possible flow is %f " % g.FordFulkerson(source, sink))
+print ("The maximum possible flow is %d " % g.FordFulkerson(source, sink))
  
 #This code is contributed by Neelam Yadav
