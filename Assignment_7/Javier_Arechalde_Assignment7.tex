@@ -35,15 +35,159 @@
 	{\large \today\par}
 \end{titlepage}
 
-\section*{1. Ford-Fulkerson Algorithm}
+\section*{1. PC Manufacturer}
 
 \subsection*{Problem model}
 
+In this problem, we are a consulting company that works for a company that manufactures PC equipment. This company will have a projected supply for each week $S = \[s_1,s_2,...,s_n\]$. To deliver each weeks supply we can choose between two different carriers. One of them charges $r$ per pound of supply. Another one has a fixed rate $c$ per week, but if we choose this carrier we will have to choose for $4$ consecutive weeks. We will have to find the best combination possible of carriers to pay the least money possible.
+
+Input:
+
+\begin{itemize}
+ \item Price per pound on Carrier 1: $r$
+ \item Price per week on Carrier 2: $c$
+ \item Projected supply for each week: $S$
+\end{itemize} 
+
+Output:
+
+\begin{itemize}
+ \item The optimal schedule: $Sch$
+\end{itemize} 
+
 \subsection*{Class}
 
-\section*{3. Doctor Holiday Assignment}
+This algorithm belongs to \textit{P} algorithms, as it is a decision problem that can be easily implemented in polynomial time.
 
+\subsection*{Algorithm}
 
-\section*{4. Advertisement Problem}
+At the beginning of our algorithm, we will start by only choosing company A, until we reach week 4, once we reach week 4, we will start checking  what is more expensive, if choosing company A for the past 3 weeks and that week, or choosing the flat rate of company B. In case using company B is the better choice, we will update the best cost for that week with the best cost four weeks ago plus the flat rate multiplied by the four weeks. Otherwise we will add the cost per pound multiplied for the projected supply for that week to the previous week best cost.
+
+In the end, we will have an array containing the best cost possible for each of the weeks, and the schedule.
+
+\subsection*{Pseudocode}
+
+\begin{algorithm}[H]
+\caption{Carrier Selection Pseudocode}
+\begin{algorithmic}[1]
+\State We set $Cost_0 = 0$
+\For{$i$ in range $0 \to n$}
+ \If{$i<3$}
+  \State $Cost_i = Cost_{i-1}+s_i*r$
+ \Else
+  \If{$Cost_{i-1}+s_i*r>4*c$}
+   \State $Cost_i = Cost_{i-4}+4*c$
+  \Else
+   \State $Cost_i = Cost_{i-1}+s_i*r$
+  \EndIf
+ \EndIf
+\EndFor
+\State \Return Best cost possible $Cost_n$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Implementation}
+
+An example of how this algorithm works can be seen by running \textit{Problem1.py}
+
+\subsection*{Time complexity}
+
+The running time of our implementation will be $O(n)$, as we have to go through the $n$ weeks to find the lowest cost possible to deliver our product supply.
+
+\section*{2. Processes scheduling}
+
+\subsection*{Problem Model}
+
+In this problem, we have $n$ processes on a system, each one of them being capable of running multiple jobs concurrently. Some jobs can't be scheduled at the same time because they both may need the same resource. We want to schedule in the next $k$ steps of the system all the jobs to run in at least one of the processes.
+
+\subsection*{Class}
+
+\subsection*{Algorithm}
+
+\section*{3. Database analysis}
+
+\section*{4. Photocopying Service}
+
+\subsection*{Problem Model}
+
+In this problem we will have different customers, each one of them having a job that takes $t_i$ to complete. Also, each one of these jobs has a weight $w_i$ that is the importance of that customer to the business.
+
+We want to find the order of jobs that minimizes the weigthed sum of the completion times: $\sum{i=1}{n}w_i C_i$.
+
+Input:
+\begin{itemize}
+ \item List of the time that takes to complete each client's job: $T = \[t_1,t_2,...,t_n\]$
+ \item List of the weight for each client's job: $W = \[w_1,w_2,...,w_n\]$
+\end{itemize}
+
+Output
+\begin{itemize}
+ \item List containing the optimal order of jobs: $Schedule = [job_x,job_y,...]$ 
+\end{itemize}
+
+\subsection*{Class}
+
+This problem belongs to \textit{P}, as it can be solved in polynomial time. We will prove this later on.
+
+\subsection*{Algorithm}
+
+In our implementation, we will first sort the different jobs by decreasing $t_i w_i$, by using quicksort algorithm. And then, we will schedule the jobs, starting by the ones that have higher $t_i w_i$ first. This way, we can minimize the weighted sum of completion times.
+
+\subsection*{Pseudocode}
+
+\begin{algorithm}[H]
+\caption{Job scheduling}
+\begin{algorithmic}[1]
+\State First we sort the jobs by completion time using QuickSort
+\Function{Quicksort}{array}
+ \If{Array length is $1$}
+
+  \Return array
+ \EndIf
+ \If{Array length $ > 1$}
+  \State $pivot == array[0]$
+  \For{Element in array}
+   \If{$element<pivot$}
+    \State We add the element to the lowerlist
+   \EndIf
+   \If{$element>pivot$}
+    \State We add element to the upperlist
+   \EndIf
+   \If{d}
+    \State Append element to the pivotlist
+   \EndIf
+  \EndFor
+  \State upperlist = \Call{quicksort}{upperlist}
+  \State lowerlist = \Call{quicksort}{lowerlist}
+ \EndIf
+ \State Return lowerlist + pivotlist + upperlist
+\EndFunction
+\State
+\State Now we will start scheduling the students by increasing deadline
+\State We initialize start time of jobs: $s_{job} = 0$
+\While{We didn't schedule all students}
+
+ \State Get the timings for the corresponding participant
+ \State Time swimming: $t_{swim}$
+ \State Time biking: $t_{biking}$
+ \State Time running $t_{running}$
+ \State
+ \State Job start and finish
+ \State $s_{run} = f_{bike}$
+ \State $f_{run} = s_{run} + t_{run}$
+ \State
+ \State We return the start and finish time for each one of the jobs
+
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Implementation}
+
+An example of how this algorithm works can be seen by running \textit{Problem4.py}
+
+\subsection*{Time Complexity}
+
+The time complexity of the scheduling part of the algorithm is $O(n)$, as we only need to go through the list once to schedule the jobs, but prior to this we need to sort our jobs by using quicksort algorithm, which has a time complexity of $O(n\log n)$. Then, as $O(n\log n)$ is upper bound of $O(n)$, the time complexity of our implementation will be $O(n\log n)$.
 
 \end{document}
