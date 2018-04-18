@@ -106,6 +106,45 @@ In this problem, we have $n$ processes on a system, each one of them being capab
 
 \section*{3. Database analysis}
 
+In this case, we have two databases, each one of them containing $n$ values, we assume that not two values are the same. We want to find the median of this $2n$ values, using the mimimum number of queries as possible. To find this value, we will have to access the data in the databases. By specifying $k$ to a database, this database will return the $k^{th}$ smallest value.
+
+\subsection*{Class}
+
+This problem belongs to the \textit{P} class, as it can be easily implemented in Polynomial time.
+
+\subsection*{Problem Model}
+
+We will name each one of the databases $D_1$ and $D_2$, each one of these databases contains $n$ values, and the query $D_i(k)$ will return the $k^{th}$ smallest value in that database. We will also have two iterators $c_1$ and $c_2$, each one of them for one of the available databases we have.
+
+\subsection*{Algorithm}
+
+What our algorithm will do is iterate through the two databases, we will first compare the lowest values of both databases, if the lowest value is in the first database, we will increase the counter of the first database, else we will increase the other counter. We will continue to compare values, until we do $n$ comparisons. Whenever we reach the $nth$ comparison, the value resulting from that comparison will be the median.
+
+\subsection*{Pseudocode}
+
+\begin{algorithm}[H]
+\caption{Carrier Selection Pseudocode}
+\begin{algorithmic}[1]
+\State We initialliize $c_1 = c_2 = 0$
+\For{$i$ in range $0 \to n$}
+ \State $val_1 = D_1(c_1)$
+ \State $val_2 = D_2(c_2)$
+ \If{$val_1>val_2$}
+  \State $c_1 = c_1 + 1$
+  \State $median = val_1$
+ \Else
+  \State $c_2 = c_2 + 1$
+  \State $median = val_2$
+ \EndIf
+\EndFor
+\State \Return $median$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Implementation}
+
+\subsection*{Time Complexity}
+
 \section*{4. Photocopying Service}
 
 \subsection*{Problem Model}
@@ -189,5 +228,41 @@ An example of how this algorithm works can be seen by running \textit{Problem4.p
 \subsection*{Time Complexity}
 
 The time complexity of the scheduling part of the algorithm is $O(n)$, as we only need to go through the list once to schedule the jobs, but prior to this we need to sort our jobs by using quicksort algorithm, which has a time complexity of $O(n\log n)$. Then, as $O(n\log n)$ is upper bound of $O(n)$, the time complexity of our implementation will be $O(n\log n)$.
+
+\section*{6. Project selection}
+
+In this problem we are a student in the end of the semester, and we have $n$ final projects. Each one of these projects will give us some points for our final performance. Also, some of these projects have prerequisites, which means that we can only work on that project if we completed the prerequisite projects first. Our goal is to select a set of projects that will maximize the utility points we get.
+
+\subsection*{Problem model}
+
+We will model this problem as a network-flow problem.
+
+In this case, the nodes will be the different projects, and each one of these projects will have associated to it the points that we can get from each of this project. Then for each one of the prerequisites for a project, we will create and edge that goes from that project to the prerequisite project. We won't assign any capacities for the edges just yet.
+
+Then we will model this problem, as the project selection problem. We will start by adding a source $s$ and a sink $t$. Then for each project that has positive points, we will create and edge that goes from the source, and the node representing that project,this edge having the number of points as its capacity. For each project that has negative points, we will create and edge that goes from that node to the sink, that edge having the capacity equal to that number of points. For the preexisting edges, we will set their capacity to $\infinity$, which means that that edge has no upper bound.
+
+Then, we will find the maximum number of points that we can achieve by working on different projects, by finding the minimum cut of the graph, by using \textit{Ford-Fulkerson} algorithm.
+
+\subsection*{Class}
+
+\subsection*{Time complexity}
+
+The time complexity of this algorithm will be $O(mn)$, as its based on \textit{Ford-Fulkerson} algorithm. Where $m$ is the number of edges, that will be equal to all the prerequisites plus the number of projects, and $n$ will be the number of nodes, that in this case will be the number of projects plus the source node, and the sink node.
+
+\section*{Summer sports camp}
+
+In this problem, we are helping organize a summer sports camp. The camp needs to hire at least one counselor who is skilled at each of the $n$ sports the camp offers. They have applications from $m$ potential counselors, for each of the $n$ sports, a subset of the $m$ applicants is qualified in that sport. We want to find out if we will be able to hire a number of counselors $k<m$, and have at least one counselor qualified in each one of the $n$ sports. 
+
+\subsection*{Problem model}
+
+We will model this problem as bipartite matching problem, in which we will have two sets, $X$, and $Y$. We first will model the graph as a bipartite graph $G$, which is an undirected graph, which has the property that every edge, has one end in $X$, and the other one in $Y$.
+
+Then we will construct a flow network $G'$ from $G$. First we will direct all edges in $G$ from $X$ to $Y$. Then we will create a source, and add one edge for every node in $X$ that goes from source $s$ to that node. After that, we will create a sink $t$, and for every node in $Y$ we will ad an edge that goes from $Y$ to $t$. In the end, we will give each edge in $G'$ a capacity of 1.
+
+Then we will compute the maximum flow in $G'$, and the maximum flow, will equal the maximum matching in $G$.
+
+\subsection*{Class}
+
+\subsection*{Time complexity}
 
 \end{document}
