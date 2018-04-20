@@ -1,19 +1,6 @@
-#We will first create a  list that contains the participants in the competition
-#and their swimming time, biking time, and running time
-contestants = [
-(1,1,2,3), #Contestant #1
-(2,4,6,6), #Contestant #2  
-(3,2,3,5),#...
-(4,4,5,3)  #Contestant #N
-]
-
-#Deadlines list
-deadline = [0]*len(contestants)
-
-#We calculate the total deadline for swimming for each one of the contestants
-for i in range(0,len(contestants)):
- contestant = contestants[i]
- deadline[i] = sum(contestant[1:4])
+#We will first create a  list for job weight and time
+jobst = [2,4,5,3,5]
+jobsw = [32,23,44,65,23]
 
 def quicksort(array,array0):
  upperlist = []
@@ -34,7 +21,7 @@ def quicksort(array,array0):
 
   for i in range(0,len(array)):
    element = array[i]
-   element0 = list(array0[i])
+   element0 = array0[i]
 
    if element<pivot:
     lowerlist.append(element)
@@ -52,36 +39,22 @@ def quicksort(array,array0):
  return lowerlist + pivotlist + upperlist, list(lower0 + pivot0 + upper0)
 
 #We will return an array with the indexes in the order that they need to be accessed
-schedule,sortcont = quicksort(deadline, contestants)
+sortw,jobst = quicksort(jobsw, jobst)
 
 #We initialize the variables
-s_swim = 0 
+s_job = 0 
+sumw = 0
 
 #Now we will start scheduling the events
-for contestant in sortcont:
+for i in range(len(jobsw)-1,-1,-1):
+ t = jobst[i]
+ w = jobsw[i]
 
- print("\n")
- print("Contestant ID: %i" %contestant[0])
+ #Finish time of the job
+ c = s_job+t
 
- #The time that will take the contestant to finish each one of the sections
- t_swim = contestant[0] 
- t_bike = contestant[1]
- t_run = contestant[2]
+ #Update the sum
+ sumw = sumw + c*w
 
- #Swimming time
- f_swim = s_swim + t_swim
-  
- #Biking time
- s_bike = f_swim
- f_bike = s_bike + t_bike
+print('Total weighted sum: %i' %sumw)
 
- #Running time
- s_run = f_bike
- f_run = s_run + t_run
-
- print("Start Swimming: %i End Swimming: %i" %(s_swim,f_swim))
- print("Start Biking: %i End Biking: %i" %(s_bike,f_bike))
- print("Start Running: %i End Running: %i" %(s_run,f_run))
-
-#The next contestant will start swimming when the previous one is done
- s_swim = f_swim

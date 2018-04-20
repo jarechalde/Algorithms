@@ -118,32 +118,38 @@ We will name each one of the databases $D_1$ and $D_2$, each one of these databa
 
 \subsection*{Algorithm}
 
-What our algorithm will do is iterate through the two databases, we will first compare the lowest values of both databases, if the lowest value is in the first database, we will increase the counter of the first database, else we will increase the other counter. We will continue to compare values, until we do $n$ comparisons. Whenever we reach the $nth$ comparison, the value resulting from that comparison will be the median.
+What our algorithm will do is iterate through the two databases, we will first compare the lowest values of both databases, if the lowest value is in the first database, we will increase the counter of the first database, else we will increase the other counter. We will continue to compare values, until we do $n+1$ comparisons. Whenever we reach the $(n+1)^{th}$ comparison, the value resulting from that comparison plus the value from the last comparison divided by $2$ will be the median, as we have an even number of values $2n$.
 
 \subsection*{Pseudocode}
 
 \begin{algorithm}[H]
 \caption{Carrier Selection Pseudocode}
 \begin{algorithmic}[1]
-\State We initialliize $c_1 = c_2 = 0$
-\For{$i$ in range $0 \to n$}
+\State We initiallize $c_1 = c_2 = 0$
+\State We initiallize $val_n = val_{n1} = 0$
+\For{$i$ in range $0 \to n+1$}
  \State $val_1 = D_1(c_1)$
  \State $val_2 = D_2(c_2)$
+ \State $val_n = val_{n1}$
  \If{$val_1>val_2$}
+  \State $val_{n1} = val_1$
   \State $c_1 = c_1 + 1$
-  \State $median = val_1$
  \Else
+  \State $val_{n1} = val_2$
   \State $c_2 = c_2 + 1$
-  \State $median = val_2$
  \EndIf
 \EndFor
-\State \Return $median$
+\State \Return $median = (val_n+val_{n1})/2$
 \end{algorithmic}
 \end{algorithm}
 
 \subsection*{Implementation}
 
+An example of how this algorithm works can be seen by running \textit{Problem3.py}
+
 \subsection*{Time Complexity}
+
+This algorithm can find the median of the values in the two databases in $O(n)$ time, as it only needs to compare $n+1$ values from the two databases.
 
 \section*{4. Photocopying Service}
 
@@ -170,14 +176,14 @@ This problem belongs to \textit{P}, as it can be solved in polynomial time. We w
 
 \subsection*{Algorithm}
 
-In our implementation, we will first sort the different jobs by decreasing $t_i w_i$, by using quicksort algorithm. And then, we will schedule the jobs, starting by the ones that have higher $t_i w_i$ first. This way, we can minimize the weighted sum of completion times.
+We will solve this problem using a greedy approach, first we will sort the jobs by decreasing weight $w_i$ using quicksort algorithm, then we will schedule this jobs, starting by the ones that have higher $w_i$ first. This way, we can minimize the weighted sum of completion times.
 
 \subsection*{Pseudocode}
 
 \begin{algorithm}[H]
 \caption{Job scheduling}
 \begin{algorithmic}[1]
-\State First we sort the jobs by completion time using QuickSort
+\State First we sort the jobs by weight using QuickSort
 \Function{Quicksort}{array}
  \If{Array length is $1$}
 
@@ -202,18 +208,14 @@ In our implementation, we will first sort the different jobs by decreasing $t_i 
  \State Return lowerlist + pivotlist + upperlist
 \EndFunction
 \State
-\State Now we will start scheduling the students by increasing deadline
+\State Now we will start scheduling the jobs by decreasing weight order
 \State We initialize start time of jobs: $s_{job} = 0$
-\While{We didn't schedule all students}
-
- \State Get the timings for the corresponding participant
- \State Time swimming: $t_{swim}$
- \State Time biking: $t_{biking}$
- \State Time running $t_{running}$
+\While{We didn't schedule all jobs}
+ \State Get the timings for the corresponding job
  \State
  \State Job start and finish
- \State $s_{run} = f_{bike}$
- \State $f_{run} = s_{run} + t_{run}$
+ \State $s_{job} = f_{previous job}$
+ \State $f_{job} = s_{job} + t_{i}$
  \State
  \State We return the start and finish time for each one of the jobs
 
@@ -228,6 +230,25 @@ An example of how this algorithm works can be seen by running \textit{Problem4.p
 \subsection*{Time Complexity}
 
 The time complexity of the scheduling part of the algorithm is $O(n)$, as we only need to go through the list once to schedule the jobs, but prior to this we need to sort our jobs by using quicksort algorithm, which has a time complexity of $O(n\log n)$. Then, as $O(n\log n)$ is upper bound of $O(n)$, the time complexity of our implementation will be $O(n\log n)$.
+
+\section*{5. Communication network}
+
+\subsection*{Problem model}
+
+In this problem, we have a communication network, modeled as a directed grapg $G = (V,E)$, a source node $s$ and a sink node $t$. There are $c$ users that want to make use of this network. Each one of these users will reserve a specific path $P_i$ that goes from $s$ to $t$, and we have the following restriction: if two users $i$ and $j$ request a path $P_i$ and $P_j$, then $P_i$ and $P_j$ cannot share any edges.
+
+We want to be able to accomodate as many users as possible from $c$ to use the communication network, following the given prerequisite. 
+
+What we will do is to model the communication network as the directed graph $G$, and give all the edges a capacity of $1$, this way, we can reduce the problem to a problem of finding the maximum flow. Then if the maximum flow equals $c$, we can accomodate all the users on the network, otherwise the network capacity is not sufficient.
+
+\subsection*{Class}
+
+The \textit{Ford-Fulkerson} algorithm for finding the maximum flow in a directed graph can be implemented in Polynomial time, so this problem belongs to $P$.
+
+\subsection*{Time Complexity}
+
+The \textit{Ford-Fulkerson} algorithm can be used to find a maximum flow in our directed graph in $O(mn)$ time as we dont have any duplicate edges in our graph, and each edge has unit capacity. 
+Where $m$ is the number of edges, and $n$ is the number of nodes.
 
 \section*{6. Project selection}
 
@@ -245,11 +266,14 @@ Then, we will find the maximum number of points that we can achieve by working o
 
 \subsection*{Class}
 
+This problem can be reduced to a problem of finding the maximum flow in a graph, then it can be solved using \textit{Ford-Fulkerson} algorithm which can be implemented in Polynomial time, so this problem belongs to $P$.
+
+
 \subsection*{Time complexity}
 
 The time complexity of this algorithm will be $O(mn)$, as its based on \textit{Ford-Fulkerson} algorithm. Where $m$ is the number of edges, that will be equal to all the prerequisites plus the number of projects, and $n$ will be the number of nodes, that in this case will be the number of projects plus the source node, and the sink node.
 
-\section*{Summer sports camp}
+\section*{7. Summer sports camp}
 
 In this problem, we are helping organize a summer sports camp. The camp needs to hire at least one counselor who is skilled at each of the $n$ sports the camp offers. They have applications from $m$ potential counselors, for each of the $n$ sports, a subset of the $m$ applicants is qualified in that sport. We want to find out if we will be able to hire a number of counselors $k<m$, and have at least one counselor qualified in each one of the $n$ sports. 
 
@@ -263,6 +287,10 @@ Then we will compute the maximum flow in $G'$, and the maximum flow, will equal 
 
 \subsection*{Class}
 
+The \textit{Ford-Fulkerson} algorithm for finding the maximum matching in a bipartite graph can be implemented in Polynomial time, so this problem belongs to $P$.
+
 \subsection*{Time complexity}
+
+The \textit{Ford-Fulkerson} algorithm can be used to find a maximum matching in a bipartite graph in $O(mn)$ time, where $m$ is the number of edges, and $n$ is the number of nodes, in this case the number of nodes will be the number of counselors plus the number of sports offered in the camp and the source and sink node, and the number of edges will be equal or less to the number of counselors multiplied to the number of nodes plus the number of counselors and the number of sports.
 
 \end{document}
