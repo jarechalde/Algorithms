@@ -39,7 +39,7 @@
 
 \subsection*{Problem model}
 
-In this problem, we are a consulting company that works for a company that manufactures PC equipment. This company will have a projected supply for each week $S = \[s_1,s_2,...,s_n\]$. To deliver each weeks supply we can choose between two different carriers. One of them charges $r$ per pound of supply. Another one has a fixed rate $c$ per week, but if we choose this carrier we will have to choose for $4$ consecutive weeks. We will have to find the best combination possible of carriers to pay the least money possible.
+In this problem, we are a consulting company that works for a company that manufactures PC equipment. This company will have a projected supply for each week $S = [s_1,s_2,...,s_n]$. To deliver each weeks supply we can choose between two different carriers. One of them charges $r$ per pound of supply. Another one has a fixed rate $c$ per week, but if we choose this carrier we will have to choose for $4$ consecutive weeks. We will have to find the best combination possible of carriers to pay the least money possible.
 
 Input:
 
@@ -102,7 +102,27 @@ In this problem, we have $n$ processes on a system, each one of them being capab
 
 \subsection*{Class}
 
-\subsection*{Algorithm}
+This problem belongs to the \textit{NP-Complete} class of problems, as it can be recognized as a partitioning problem, in which we have to divide in this case the jobs into different subsets, the processes, in a way that each one of the jobs appears in exactly one of the processes. More specifically, we can relate this problem to the graph coloring problem, as there exist conflicts between some of the jobs.
+
+\subsection*{Complexity of the problem}
+
+We will follow the following strategy to prove thato our problem is NP-Complete.
+
+\begin{itemize}
+ \item Prove that $X\in NP$
+ \item Choose a problem $Y$ that is known to be NP-Complete
+ \item Probe that $Y\leq_p X$
+\end{itemize}
+
+For our given problem, the certifier $B$ will prove that all the jobs are scheduled in at least one process, and at the same time that not two jobs are scheduled at the same time.
+
+Then we choose a problem $Y$, in this case the graph coloring problem, that we know that is NP-Complete.
+
+In the case of graph coloring, we have $k$ colors, and a Graph $G$, we want to find out if there is a possible k-coloring for that graph. There is also conflicts between objects, which means that conflicting objects can't go into the same set.
+
+In the case of our problem, we have $n$ processes, and $k$ steps of the system. We want to schedule the different jobs in our system to run in at least one of the processes, while there is also conflicts between our jobs, because some of them need the same resource, so they can't run at the same time.
+
+So we can relate the colors to the number of steps in our problem, so if we can color the grap with $k$ colors, we can also schedule the processes in $k$ steps of the system. And also the incompatibilities between some objects that can't go into the same set can be seen as the incompatibilities between two jobs that can't be scheduled at the same time because they need to access the same resource.
 
 \section*{3. Database analysis}
 
@@ -161,8 +181,8 @@ We want to find the order of jobs that minimizes the weigthed sum of the complet
 
 Input:
 \begin{itemize}
- \item List of the time that takes to complete each client's job: $T = \[t_1,t_2,...,t_n\]$
- \item List of the weight for each client's job: $W = \[w_1,w_2,...,w_n\]$
+ \item List of the time that takes to complete each client's job: $T = [t_1,t_2,...,t_n]$
+ \item List of the weight for each client's job: $W = [w_1,w_2,...,w_n]$
 \end{itemize}
 
 Output
@@ -260,7 +280,7 @@ We will model this problem as a network-flow problem.
 
 In this case, the nodes will be the different projects, and each one of these projects will have associated to it the points that we can get from each of this project. Then for each one of the prerequisites for a project, we will create and edge that goes from that project to the prerequisite project. We won't assign any capacities for the edges just yet.
 
-Then we will model this problem, as the project selection problem. We will start by adding a source $s$ and a sink $t$. Then for each project that has positive points, we will create and edge that goes from the source, and the node representing that project,this edge having the number of points as its capacity. For each project that has negative points, we will create and edge that goes from that node to the sink, that edge having the capacity equal to that number of points. For the preexisting edges, we will set their capacity to $\infinity$, which means that that edge has no upper bound.
+Then we will model this problem, as the project selection problem. We will start by adding a source $s$ and a sink $t$. Then for each project that has positive points, we will create and edge that goes from the source, and the node representing that project,this edge having the number of points as its capacity. For each project that has negative points, we will create and edge that goes from that node to the sink, that edge having the capacity equal to that number of points. For the preexisting edges, we will set their capacity to $\infty$, which means that that edge has no upper bound.
 
 Then, we will find the maximum number of points that we can achieve by working on different projects, by finding the minimum cut of the graph, by using \textit{Ford-Fulkerson} algorithm.
 

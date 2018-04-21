@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  20 APR 2018 19:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.1)  20 APR 2018 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -612,7 +612,7 @@ LaTeX Info: Redefining \labelcpageref on input line 2230.
 Package cleveref Info: `algorithmicx' support loaded on input line 2939.
 Package cleveref Info: `listings' support loaded on input line 2950.
 )
-No file Javier_Arechalde_Assignment7.aux.
+(./Javier_Arechalde_Assignment7.aux)
 \openout1 = `Javier_Arechalde_Assignment7.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -630,6 +630,7 @@ LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 \c@lstlisting=\count167
+
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count168
@@ -675,6 +676,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 25.
 LaTeX Info: Redefining \pageref on input line 25.
 LaTeX Info: Redefining \nameref on input line 25.
+
+(./Javier_Arechalde_Assignment7.out) (./Javier_Arechalde_Assignment7.out)
 \@outlinefile=\write3
 \openout3 = `Javier_Arechalde_Assignment7.out'.
 
@@ -682,67 +685,8 @@ LaTeX Info: Redefining \nameref on input line 25.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.42 ...e a projected supply for each week $S = \[
-                                                  s_1,s_2,...,s_n\]$. To del...
-
-? 
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.42 ...ply for each week $S = \[s_1,s_2,...,s_n\]
-                                                  $. To deliver each weeks s...
-
-? 
-
-! LaTeX Error: \begin{document} ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.42 ...ply for each week $S = \[s_1,s_2,...,s_n\]
-                                                  $. To deliver each weeks s...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.42 ...ply for each week $S = \[s_1,s_2,...,s_n\]
-                                                  $. To deliver each weeks s...
-
-? 
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.42 ...ply for each week $S = \[s_1,s_2,...,s_n\]
-                                                  $. To deliver each weeks s...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.43 
-     
-? 
-
-Overfull \hbox (1102.3037pt too wide) in paragraph at lines 42--43
-\OT1/cmr/m/n/10 each week $\OML/cmm/m/it/10 S \OT1/cmr/m/n/10 = \OML/cmm/m/it/1
-0 s[]; s[]; :::; s[]$$$$:Todelivereachweekssupplywecanchoosebetweentwodifferent
-carriers:Oneofthemcharges$\OT1/cmr/m/n/10 r$\OML/cmm/m/it/10 perpoundofsupply:A
-notheronehasafixedrate$\OT1/cmr/m/n/10 c$\OML/cmm/m/it/10 perweek; butifwechoos
-ethiscarrierwewillhavetochoosefor$\OT1/cmr/m/n/10 4$\OML/cmm/m/it/10 consecutiv
-eweeks:Wewillhavetofindthebestcombinationpossibleofcarrierstopaytheleastmoneypo
-ssible:$ 
- []
-
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 47.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -755,323 +699,168 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.88 
-      [1] [2]pdfTeX warning (ext4): destination with the same identifier (name{
-ALG@line.1}) has been already used, duplicate ignored
+      [1] [2] [3]pdfTeX warning (ext4): destination with the same identifier (n
+ame{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128 \State
+l.148 \State
              We initiallize $c_1 = c_2 = 0$pdfTeX warning (ext4): destination w
 ith the same identifier (name{ALG@line.2}) has been already used, duplicate ign
 ored
 <to be read again> 
                    \relax 
-l.129 \State
+l.149 \State
              We initiallize $val_n = val_{n1} = 0$pdfTeX warning (ext4): destin
 ation with the same identifier (name{ALG@line.3}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.130 \For
+l.150 \For
           {$i$ in range $0 \to n+1$}pdfTeX warning (ext4): destination with the
  same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.131  \State
+l.151  \State
               $val_1 = D_1(c_1)$pdfTeX warning (ext4): destination with the sam
 e identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.132  \State
+l.152  \State
               $val_2 = D_2(c_2)$pdfTeX warning (ext4): destination with the sam
 e identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.133  \State
+l.153  \State
               $val_n = val_{n1}$pdfTeX warning (ext4): destination with the sam
 e identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.134  \If
+l.154  \If
           {$val_1>val_2$}pdfTeX warning (ext4): destination with the same ident
 ifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135   \State
+l.155   \State
                $val_{n1} = val_1$pdfTeX warning (ext4): destination with the sa
 me identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.136   \State
+l.156   \State
                $c_1 = c_1 + 1$pdfTeX warning (ext4): destination with the same 
 identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137  \Else
+l.157  \Else
             pdfTeX warning (ext4): destination with the same identifier (name{A
 LG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.138   \State
+l.158   \State
                $val_{n1} = val_2$pdfTeX warning (ext4): destination with the sa
 me identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.139   \State
+l.159   \State
                $c_2 = c_2 + 1$pdfTeX warning (ext4): destination with the same 
 identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.140  \EndIf
-              [3] [4]
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 ...es to complete each client's job: $T = \[
-                                                  t_1,t_2,...,t_n\]$
-? 
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.164 ...ch client's job: $T = \[t_1,t_2,...,t_n\]
-                                                  $
-? 
-
-! LaTeX Error: \begin{itemize} on input line 163 ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 ...ch client's job: $T = \[t_1,t_2,...,t_n\]
-                                                  $
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.164 ...ch client's job: $T = \[t_1,t_2,...,t_n\]
-                                                  $
-? 
-
-! LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165  \item
-             List of the weight for each client's job: $W = \[w_1,w_2,...,w_...
-
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165  \item L
-              ist of the weight for each client's job: $W = \[w_1,w_2,...,w_...
-
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165  \item L
-              ist of the weight for each client's job: $W = \[w_1,w_2,...,w_...
-
-? 
-
-! LaTeX Error: Lonely \item--perhaps a missing list environment.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165  \item L
-              ist of the weight for each client's job: $W = \[w_1,w_2,...,w_...
-
-? 
-
-Underfull \hbox (badness 10000) detected at line 165
-[][]
- []
-
-
-Overfull \hbox (132.5681pt too wide) in paragraph at lines 164--165
-[]\OT1/cmr/m/n/10 List of the time that takes to com-plete each client's job: $
-\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 t[]; t[]; :::; t[]$$$$Lis
-toftheweightforeachclient[]sjob \OT1/cmr/m/n/10 :$W
- []
-
-
-! LaTeX Error: Command \end{document} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.166 \end{itemize}
-                   
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.166 \end{itemize}
-                   
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.166 \end{itemize}
-                   
-? 
-
-! LaTeX Error: \begin{document} ended by \end{itemize}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.166 \end{itemize}
-                   
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.166 \end{itemize}
-                   
-? 
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.166 \end{itemize}
-                   
-? 
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) 
-has been already used, duplicate ignored
+l.160  \EndIf
+              [4] [5]pdfTeX warning (ext4): destination with the same identifie
+r (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.186 \State
-             First we sort the jobs by completion time using QuickSortpdfTeX wa
-rning (ext4): destination with the same identifier (name{ALG@line.2}) has been 
-already used, duplicate ignored
+l.206 \State
+             First we sort the jobs by weight using QuickSortpdfTeX warning (ex
+t4): destination with the same identifier (name{ALG@line.2}) has been already u
+sed, duplicate ignored
 <to be read again> 
                    \relax 
-l.187 \Function
+l.207 \Function
                {Quicksort}{array}pdfTeX warning (ext4): destination with the sa
 me identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.188  \If
+l.208  \If
           {Array length is $1$}pdfTeX warning (ext4): destination with the same
  identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.191  \EndIf
+l.211  \EndIf
              pdfTeX warning (ext4): destination with the same identifier (name{
 ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.192  \If
+l.212  \If
           {Array length $ > 1$}pdfTeX warning (ext4): destination with the same
  identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193   \State
+l.213   \State
                $pivot == array[0]$pdfTeX warning (ext4): destination with the s
 ame identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.194   \For
+l.214   \For
             {Element in array}pdfTeX warning (ext4): destination with the same 
 identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.195    \If
+l.215    \If
             {$element<pivot$}pdfTeX warning (ext4): destination with the same i
 dentifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.196     \State
+l.216     \State
                  We add the element to the lowerlistpdfTeX warning (ext4): dest
 ination with the same identifier (name{ALG@line.10}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.197    \EndIf
+l.217    \EndIf
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.198    \If
+l.218    \If
             {$element>pivot$}pdfTeX warning (ext4): destination with the same i
 dentifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.199     \State
+l.219     \State
                  We add element to the upperlistpdfTeX warning (ext4): destinat
 ion with the same identifier (name{ALG@line.13}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.200    \EndIf
+l.220    \EndIf
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.201    \If
+l.221    \If
             {d}pdfTeX warning (ext4): destination with the same identifier (nam
 e{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.202     \State
-                 Append element to the pivotlist [5] [6] [7]
-! Undefined control sequence.
-<recently read> \infinity 
-                          
-l.267 ... we will set their capacity to $\infinity
-                                                  $, which means that that e...
+l.222     \State
+                 Append element to the pivotlist [6] [7] [8] [9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 316.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 316.
 
-? 
-[8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
- (./Javier_Arechalde_Assignment7.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
-
-
-Package rerunfilecheck Warning: File `Javier_Arechalde_Assignment7.out' has cha
-nged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Javier_Arechalde_Assignment7.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+(./Javier_Arechalde_Assignment7.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 316.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
+Package rerunfilecheck Info: File `Javier_Arechalde_Assignment7.out' has not ch
+anged.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18040 strings out of 493029
- 321983 string characters out of 6136235
+ 18043 strings out of 493029
+ 322147 string characters out of 6136235
  415708 words of memory out of 5000000
- 21355 multiletter control sequences out of 15000+600000
+ 21354 multiletter control sequences out of 15000+600000
  7507 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,6n,42p,10450b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1088,10 +877,10 @@ ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Javier_Arechalde_Assignment7.pdf (11 pages, 180116 bytes).
+Output written on Javier_Arechalde_Assignment7.pdf (12 pages, 182332 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
+ 207 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
- 88 named destinations out of 1000 (max. 500000)
+ 86 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
