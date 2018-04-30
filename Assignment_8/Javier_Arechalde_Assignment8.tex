@@ -176,7 +176,46 @@ This greedy algorithm returns a set $C$ of $k$ points such that $r(C)\leq 2r(C\a
 
 \subsection*{Problem Model}
 
+In this problem, we have $n$ job requests to select from, each job paying $p_i$ amount of reward. Some of these jobs can't be scheduled together due to time conflicts. Our goal is to select the set of jobs that have no conflict among themselves that gives us the highest total amount of reward.
+
+We will model this problem as a tree, in which the nodes are the jobs, and the edges are the conflicts. Each one of the nodes (jobs) will have associated a certain amount, that will be the reward for completing that job. Then our goal will be to find the maximum-weight independent set on the tree.
+
 \subsection*{Class}
+
+The problem of finding a maximum weight independent set in a tree belongs to $P$ class.
+
+\subsection*{Algorithm}
+
+We will first root an arbitrary node $r$, to orientate all the tree's edges away from $r$. For a node $u$ the nodes that are in between this node and $r$ will be then the parent nodes, and the nodes that face the other way will be the children nodes.
+
+Then we will use a dynamic programming solution at each node, in which we will have to choose to include that node or not depending on which gives the maximum revenue, if including that node, but not its children, or including the children nodes but not that node.
+
+\subsection*{Pseudocode}
+
+\begin{algorithm}[H]
+\caption{Find maximum-weight independent set pseudocode}
+\begin{algorithmic}[1]
+\State First root the tree at arbitrary node $r$
+\For{All nodes $u\in T$ in post-order}
+ \If{$u$ it's a leaf node}
+  \State $M_{out}[u] = 0$
+  \State $M_{in}[u] = w_u$
+ \Else{$u$ it's not a leaf node}
+  \State $M_{out}[u] = \sum_{v\in children(u)}^{} max(M_{out}[u],M_{in}[u])$
+  \State $M_{in}[u] = w_u + \sum_{v\in children(u)}^{} M_{out}[u]$
+ \EndIf
+\EndFor
+\Return $max(M_{out}[r],M_{in}[r])$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Problem instance}
+
+An example of how to solve this problem can be found in the image attached to this assignment \textit{Problem5.jpg}.
+
+\subsection*{Time complexity}
+
+The time complexiy of this algorithm will be $O(n)$, where $n$ is the number of nodes, in this case the number of jobs.
 
 \section*{6. City roads monitoring}
 
