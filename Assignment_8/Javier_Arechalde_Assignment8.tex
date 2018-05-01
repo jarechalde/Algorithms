@@ -82,7 +82,35 @@ $$L\leq \frac{3}{2} L^{\ast}$$
 
 \subsection*{Problem Model}
 
+In this problem we have a processor that can run jobs over some period of time. People submit jobs, and the processor can only work on one job at a time. These jobs run in a set of intervals of time, so if you accept that job, you have to accept all the job intervals.
+
+We are given $k$ jobs and we want to find out if we can schedule all $k$ jobs in such a way that not two jobs of the accepted jobs overlap.
+
+We will model this problem as a \textit{Interval coloring} problem, in which we have a set of intervals, and we have to schedule all them in a way that we don't use more than the number of colors that we have available, in this case the number of processors, one. Also, in this problem if we assign one wave to one color we have to continue assigning this waves to the same color, same as here that if we schedule one job, we have to schedule all the intervals corresponding to this job.
+
 \subsection*{Class}
+
+The \textit{Graph coloring} problem can be broken down into \textit{Interval coloring} problem, so it belongs to NP-Complete problems.
+
+\subsection*{Complexity of the problem}
+
+We will follow the following strategy to prove thato our problem is NP-Complete.
+
+\begin{itemize}
+ \item Prove that $X\in NP$
+ \item Choose a problem $Y$ that is known to be NP-Complete
+ \item Probe that $Y\leq_p X$
+\end{itemize}
+
+For our given problem, the certifier $B$ will prove that all the jobs are scheduled in at least one process, and at the same time that not two jobs are scheduled at the same time.
+
+Then we choose a problem $Y$, in this case the graph coloring problem, that we know that is NP-Complete.
+
+In the case of graph coloring, we have $k$ colors, and a Graph $G$, we want to find out if there is a possible k-coloring for that graph. There is also conflicts between objects, which means that conflicting objects can't go into the same set. Also, the coloring in the graph must be consistent, so if we assign a color to one wavelength, the next time this wavelength appears, we must assign these wavelength the same color as before.
+
+In the case of our problem, we have $n$ jobs, and one procesor, so the depth of our graph is only one. We also want to see if we can schedule $k$ of the jobs, while taking into account that when we schedule a job we have to schedule all the intervals related to this job, and that not two jobs can run at the same time in the same processor.
+
+So what we will do is to solve this problem as if it was a interval scheduling problem, having unlimited colors, or unlimited depth then we will check how many jobs are scheduled in one of the colors. If the number of jobs scheduled in this color is equal or greather than $k$ that means that the answer to our question will be yes, otherwise we will need more processors to schedule those $k$ jobs.
 
 \section*{3. Airport service}
 
